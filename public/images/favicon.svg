@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Background -->
+  <rect width="32" height="32" rx="4" fill="#0d6efd"/>
+  
+  <!-- Simplified Dumbbell -->
+  <!-- Left weight -->
+  <rect x="4" y="13" width="4" height="6" rx="1" fill="#ffffff"/>
+  
+  <!-- Bar -->
+  <rect x="8" y="15" width="16" height="2" rx="1" fill="#ffffff"/>
+  
+  <!-- Right weight -->
+  <rect x="24" y="13" width="4" height="6" rx="1" fill="#ffffff"/>
+  
+  <!-- Center grip -->
+  <line x1="15" y1="15" x2="15" y2="17" stroke="#0d6efd" stroke-width="0.5"/>
+  <line x1="16" y1="15" x2="16" y2="17" stroke="#0d6efd" stroke-width="0.5"/>
+  <line x1="17" y1="15" x2="17" y2="17" stroke="#0d6efd" stroke-width="0.5"/>
+</svg>

@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffc107;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff9800;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="675" fill="#f8f9fa"/>
+  
+  <!-- Browser Chrome -->
+  <rect width="1200" height="40" fill="#e9ecef"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f56"/>
+  <circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
+  <circle cx="60" cy="20" r="6" fill="#27c93f"/>
+  
+  <!-- Header -->
+  <rect y="40" width="1200" height="80" fill="url(#grad3)"/>
+  <text x="60" y="95" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Class Schedule</text>
+  <rect x="1050" y="60" width="120" height="40" rx="5" fill="white"/>
+  <text x="1065" y="87" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffc107">+ New Class</text>
+  
+  <!-- Sidebar -->
+  <rect y="120" width="250" height="555" fill="#212529"/>
+  
+  <!-- Sidebar Menu Items -->
+  <rect x="20" y="140" width="210" height="40" rx="5" fill="#343a40"/>
+  <text x="40" y="167" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">📊 Dashboard</text>
+  
+  <rect x="20" y="190" width="210" height="40" rx="5" fill="#343a40"/>
+  <text x="40" y="217" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">👥 Members</text>
+  
+  <rect x="20" y="240" width="210" height="40" rx="5" fill="#343a40"/>
+  <text x="40" y="267" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">💪 Trainers</text>
+  
+  <rect x="20" y="290" width="210" height="40" rx="5" fill="#ffc107"/>
+  <text x="40" y="317" font-family="Arial, sans-serif" font-size="14" fill="#212529">📅 Classes</text>
+  
+  <!-- Calendar View -->
+  <g transform="translate(280, 150)">
+    <!-- Week Navigation -->
+    <rect width="890" height="60" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
+    <text x="40" y="38" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#212529">Week of October 21-27, 2025</text>
+    <rect x="700" y="15" width="80" height="35" rx="5" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+    <text x="720" y="38" font-family="Arial, sans-serif" font-size="14" fill="#495057">← Prev</text>
+    <rect x="790" y="15" width="80" height="35" rx="5" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+    <text x="810" y="38" font-family="Arial, sans-serif" font-size="14" fill="#495057">Next →</text>
+  </g>
+  
+  <!-- Calendar Grid -->
+  <g transform="translate(280, 230)">
+    <rect width="890" height="400" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
+    
+    <!-- Day Headers -->
+    <rect width="127" height="50" fill="#f8f9fa"/>
+    <text x="40" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">MON 21</text>
+    
+    <rect x="127" width="127" height="50" fill="#f8f9fa"/>
+    <text x="167" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">TUE 22</text>
+    
+    <rect x="254" width="127" height="50" fill="#f8f9fa"/>
+    <text x="294" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">WED 23</text>
+    
+    <rect x="381" width="127" height="50" fill="#f8f9fa"/>
+    <text x="421" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">THU 24</text>
+    
+    <rect x="508" width="127" height="50" fill="#f8f9fa"/>
+    <text x="548" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">FRI 25</text>
+    
+    <rect x="635" width="127" height="50" fill="#e9ecef"/>
+    <text x="675" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6c757d">SAT 26</text>
+    
+    <rect x="762" width="128" height="50" fill="#e9ecef"/>
+    <text x="802" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6c757d">SUN 27</text>
+    
+    <!-- Time Slots - Morning -->
+    <!-- Monday Morning -->
+    <rect x="10" y="65" width="107" height="60" rx="5" fill="#e7f3ff" stroke="#0d6efd" stroke-width="2"/>
+    <text x="20" y="85" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0d6efd">Yoga</text>
+    <text x="20" y="100" font-family="Arial, sans-serif" font-size="10" fill="#495057">6:00 AM</text>
+    <text x="20" y="115" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">Sarah J.</text>
+    
+    <!-- Tuesday Morning -->
+    <rect x="137" y="65" width="107" height="60" rx="5" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+    <text x="147" y="85" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#856404">Spin Class</text>
+    <text x="147" y="100" font-family="Arial, sans-serif" font-size="10" fill="#495057">5:30 AM</text>
+    <text x="147" y="115" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">Mike R.</text>
+    
+    <!-- Wednesday Morning -->
+    <rect x="264" y="65" width="107" height="60" rx="5" fill="#d1e7dd" stroke="#198754" stroke-width="2"/>
+    <text x="274" y="85" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0f5132">HIIT</text>
+    <text x="274" y="100" font-family="Arial, sans-serif" font-size="10" fill="#495057">6:00 AM</text>
+    <text x="274" y="115" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">Alex M.</text>
+    
+    <!-- Time Slots - Midday -->
+    <!-- Monday Midday -->
+    <rect x="10" y="135" width="107" height="60" rx="5" fill="#d1e7dd" stroke="#198754" stroke-width="2"/>
+    <text x="20" y="155" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0f5132">CrossFit</text>
+    <text x="20" y="170" font-family="Arial, sans-serif" font-size="10" fill="#495057">12:00 PM</text>
+    <text x="20" y="185" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">John D.</text>
+    
+    <!-- Tuesday Midday -->
+    <rect x="137" y="135" width="107" height="60" rx="5" fill="#f8d7da" stroke="#dc3545" stroke-width="2"/>
+    <text x="147" y="155" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#721c24">Boxing</text>
+    <text x="147" y="170" font-family="Arial, sans-serif" font-size="10" fill="#495057">1:00 PM</text>
+    <text x="147" y="185" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">Emma T.</text>
+    
+    <!-- Thursday Midday -->
+    <rect x="391" y="135" width="107" height="60" rx="5" fill="#e7f3ff" stroke="#0d6efd" stroke-width="2"/>
+    <text x="401" y="155" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0d6efd">Pilates</text>
+    <text x="401" y="170" font-family="Arial, sans-serif" font-size="10" fill="#495057">12:30 PM</text>
+    <text x="401" y="185" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">Lisa K.</text>
+    
+    <!-- Time Slots - Evening -->
+    <!-- Monday Evening -->
+    <rect x="10" y="205" width="107" height="60" rx="5" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+    <text x="20" y="225" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#856404">Zumba</text>
+    <text x="20" y="240" font-family="Arial, sans-serif" font-size="10" fill="#495057">6:00 PM</text>
+    <text x="20" y="255" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">Maria G.</text>
+    
+    <!-- Tuesday Evening -->
+    <rect x="137" y="205" width="107" height="60" rx="5" fill="#e7f3ff" stroke="#0d6efd" stroke-width="2"/>
+    <text x="147" y="225" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0d6efd">Yoga Flow</text>
+    <text x="147" y="240" font-family="Arial, sans-serif" font-size="10" fill="#495057">7:00 PM</text>
+    <text x="147" y="255" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">Sarah J.</text>
+    
+    <!-- Wednesday Evening -->
+    <rect x="264" y="205" width="107" height="60" rx="5" fill="#d1e7dd" stroke="#198754" stroke-width="2"/>
+    <text x="274" y="225" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0f5132">Bootcamp</text>
+    <text x="274" y="240" font-family="Arial, sans-serif" font-size="10" fill="#495057">6:30 PM</text>
+    <text x="274" y="255" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">Mike R.</text>
+    
+    <!-- Thursday Evening -->
+    <rect x="391" y="205" width="107" height="60" rx="5" fill="#f8d7da" stroke="#dc3545" stroke-width="2"/>
+    <text x="401" y="225" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#721c24">Kickboxing</text>
+    <text x="401" y="240" font-family="Arial, sans-serif" font-size="10" fill="#495057">5:30 PM</text>
+    <text x="401" y="255" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">Alex M.</text>
+    
+    <!-- Friday Evening -->
+    <rect x="518" y="205" width="107" height="60" rx="5" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+    <text x="528" y="225" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#856404">Dance Fit</text>
+    <text x="528" y="240" font-family="Arial, sans-serif" font-size="10" fill="#495057">7:00 PM</text>
+    <text x="528" y="255" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">Maria G.</text>
+    
+    <!-- Late Evening -->
+    <!-- Friday Late -->
+    <rect x="518" y="275" width="107" height="60" rx="5" fill="#e7f3ff" stroke="#0d6efd" stroke-width="2"/>
+    <text x="528" y="295" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0d6efd">Night Yoga</text>
+    <text x="528" y="310" font-family="Arial, sans-serif" font-size="10" fill="#495057">8:30 PM</text>
+    <text x="528" y="325" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">Lisa K.</text>
+    
+    <!-- Weekend - Saturday -->
+    <rect x="645" y="135" width="107" height="90" rx="5" fill="#d1e7dd" stroke="#198754" stroke-width="2"/>
+    <text x="655" y="160" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0f5132">Weekend</text>
+    <text x="655" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0f5132">Warriors</text>
+    <text x="655" y="195" font-family="Arial, sans-serif" font-size="10" fill="#495057">9:00 AM</text>
+    <text x="655" y="210" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">All Trainers</text>
+    
+    <!-- Weekend - Sunday -->
+    <rect x="772" y="135" width="108" height="90" rx="5" fill="#e7f3ff" stroke="#0d6efd" stroke-width="2"/>
+    <text x="782" y="160" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0d6efd">Relax &</text>
+    <text x="782" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0d6efd">Recover</text>
+    <text x="782" y="195" font-family="Arial, sans-serif" font-size="10" fill="#495057">10:00 AM</text>
+    <text x="782" y="210" font-family="Arial, sans-serif" font-size="9" fill="#6c757d">Sarah J.</text>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(280, 645)">
+    <rect width="15" height="15" fill="#e7f3ff" stroke="#0d6efd" stroke-width="1"/>
+    <text x="20" y="12" font-family="Arial, sans-serif" font-size="11" fill="#495057">Yoga/Pilates</text>
+    
+    <rect x="120" width="15" height="15" fill="#d1e7dd" stroke="#198754" stroke-width="1"/>
+    <text x="140" y="12" font-family="Arial, sans-serif" font-size="11" fill="#495057">Cardio</text>
+    
+    <rect x="220" width="15" height="15" fill="#fff3cd" stroke="#ffc107" stroke-width="1"/>
+    <text x="240" y="12" font-family="Arial, sans-serif" font-size="11" fill="#495057">Dance</text>
+    
+    <rect x="320" width="15" height="15" fill="#f8d7da" stroke="#dc3545" stroke-width="1"/>
+    <text x="340" y="12" font-family="Arial, sans-serif" font-size="11" fill="#495057">Combat</text>
+  </g>
+  
+  <!-- Watermark -->
+  <text x="600" y="660" font-family="Arial, sans-serif" font-size="12" fill="#adb5bd" text-anchor="middle">Gym Management System - Class Schedule</text>
+</svg>
