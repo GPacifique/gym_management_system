@@ -1,139 +1,338 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
-  <defs>
-    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#198754;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#157347;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  
-  <!-- Background -->
-  <rect width="1200" height="675" fill="#f8f9fa"/>
-  
-  <!-- Browser Chrome -->
-  <rect width="1200" height="40" fill="#e9ecef"/>
-  <circle cx="20" cy="20" r="6" fill="#ff5f56"/>
-  <circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
-  <circle cx="60" cy="20" r="6" fill="#27c93f"/>
-  
-  <!-- Header -->
-  <rect y="40" width="1200" height="80" fill="url(#grad2)"/>
-  <text x="60" y="95" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Member Management</text>
-  <rect x="1050" y="60" width="120" height="40" rx="5" fill="white"/>
-  <text x="1070" y="87" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#198754">+ Add Member</text>
-  
-  <!-- Sidebar -->
-  <rect y="120" width="250" height="555" fill="#212529"/>
-  
-  <!-- Sidebar Menu Items -->
-  <rect x="20" y="140" width="210" height="40" rx="5" fill="#343a40"/>
-  <text x="40" y="167" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">📊 Dashboard</text>
-  
-  <rect x="20" y="190" width="210" height="40" rx="5" fill="#198754"/>
-  <text x="40" y="217" font-family="Arial, sans-serif" font-size="14" fill="white">👥 Members</text>
-  
-  <rect x="20" y="240" width="210" height="40" rx="5" fill="#343a40"/>
-  <text x="40" y="267" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">💪 Trainers</text>
-  
-  <rect x="20" y="290" width="210" height="40" rx="5" fill="#343a40"/>
-  <text x="40" y="317" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">📅 Classes</text>
-  
-  <!-- Main Content -->
-  <g transform="translate(280, 150)">
-    <!-- Search and Filters -->
-    <rect width="600" height="50" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    <text x="20" y="32" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">🔍 Search members...</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+
+  <defs>  <defs>
+
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />      <stop offset="0%" style="stop-color:#198754;stop-opacity:1" />
+
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />      <stop offset="100%" style="stop-color:#157347;stop-opacity:1" />
+
+    </linearGradient>    </linearGradient>
+
+    <linearGradient id="avatarGrad1" x1="0%" y1="0%" x2="100%" y2="100%">  </defs>
+
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />  
+
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />  <!-- Background -->
+
+    </linearGradient>  <rect width="1200" height="675" fill="#f8f9fa"/>
+
+    <linearGradient id="avatarGrad2" x1="0%" y1="0%" x2="100%" y2="100%">  
+
+      <stop offset="0%" style="stop-color:#48bb78;stop-opacity:1" />  <!-- Browser Chrome -->
+
+      <stop offset="100%" style="stop-color:#38a169;stop-opacity:1" />  <rect width="1200" height="40" fill="#e9ecef"/>
+
+    </linearGradient>  <circle cx="20" cy="20" r="6" fill="#ff5f56"/>
+
+    <linearGradient id="avatarGrad3" x1="0%" y1="0%" x2="100%" y2="100%">  <circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
+
+      <stop offset="0%" style="stop-color:#4299e1;stop-opacity:1" />  <circle cx="60" cy="20" r="6" fill="#27c93f"/>
+
+      <stop offset="100%" style="stop-color:#3182ce;stop-opacity:1" />  
+
+    </linearGradient>  <!-- Header -->
+
+    <linearGradient id="avatarGrad4" x1="0%" y1="0%" x2="100%" y2="100%">  <rect y="40" width="1200" height="80" fill="url(#grad2)"/>
+
+      <stop offset="0%" style="stop-color:#ed8936;stop-opacity:1" />  <text x="60" y="95" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Member Management</text>
+
+      <stop offset="100%" style="stop-color:#dd6b20;stop-opacity:1" />  <rect x="1050" y="60" width="120" height="40" rx="5" fill="white"/>
+
+    </linearGradient>  <text x="1070" y="87" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#198754">+ Add Member</text>
+
+    <filter id="shadow">  
+
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.1"/>  <!-- Sidebar -->
+
+    </filter>  <rect y="120" width="250" height="555" fill="#212529"/>
+
+  </defs>  
+
+    <!-- Sidebar Menu Items -->
+
+  <!-- Background -->  <rect x="20" y="140" width="210" height="40" rx="5" fill="#343a40"/>
+
+  <rect width="1400" height="900" fill="#f7fafc"/>  <text x="40" y="167" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">📊 Dashboard</text>
+
     
-    <rect x="650" y="0" width="150" height="50" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    <text x="670" y="32" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Filter: Active ▼</text>
+
+  <!-- Header -->  <rect x="20" y="190" width="210" height="40" rx="5" fill="#198754"/>
+
+  <rect width="1400" height="80" fill="url(#headerGrad)"/>  <text x="40" y="217" font-family="Arial, sans-serif" font-size="14" fill="white">👥 Members</text>
+
+  <circle cx="40" cy="40" r="22" fill="white" opacity="0.2"/>  
+
+  <text x="40" y="48" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">G</text>  <rect x="20" y="240" width="210" height="40" rx="5" fill="#343a40"/>
+
+  <text x="75" y="52" font-family="Arial, sans-serif" font-size="26" fill="white" font-weight="bold">GymMate Members</text>  <text x="40" y="267" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">💪 Trainers</text>
+
     
-    <rect x="820" y="0" width="150" height="50" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    <text x="840" y="32" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Export 📥</text>
+
+  <!-- Toolbar -->  <rect x="20" y="290" width="210" height="40" rx="5" fill="#343a40"/>
+
+  <g transform="translate(40, 120)">  <text x="40" y="317" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">📅 Classes</text>
+
+    <rect width="900" height="50" rx="8" fill="white" filter="url(#shadow)"/>  
+
+    <text x="20" y="32" font-family="Arial, sans-serif" font-size="16" fill="#a0aec0">🔍 Search members...</text>  <!-- Main Content -->
+
+    <rect x="780" y="10" width="100" height="30" rx="6" fill="url(#headerGrad)"/>  <g transform="translate(280, 150)">
+
+    <text x="830" y="32" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="500">+ Add Member</text>    <!-- Search and Filters -->
+
+  </g>    <rect width="600" height="50" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+      <text x="20" y="32" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">🔍 Search members...</text>
+
+  <g transform="translate(970, 120)">    
+
+    <text x="0" y="32" font-family="Arial, sans-serif" font-size="16" fill="#718096">Total: 1,247 members</text>    <rect x="650" y="0" width="150" height="50" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+  </g>    <text x="670" y="32" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Filter: Active ▼</text>
+
+      
+
+  <!-- Member Cards Grid -->    <rect x="820" y="0" width="150" height="50" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+  <!-- Row 1 -->    <text x="840" y="32" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Export 📥</text>
+
+  <g transform="translate(40, 200)">  </g>
+
+    <!-- Card 1 -->  
+
+    <g>  <!-- Members Table -->
+
+      <rect width="310" height="280" rx="12" fill="white" filter="url(#shadow)"/>  <g transform="translate(280, 230)">
+
+      <circle cx="155" cy="80" r="45" fill="url(#avatarGrad1)"/>    <rect width="890" height="400" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+      <text x="155" y="90" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle" font-weight="bold">SJ</text>    
+
+      <text x="155" y="150" font-family="Arial, sans-serif" font-size="18" fill="#2d3748" text-anchor="middle" font-weight="bold">Sarah Johnson</text>    <!-- Table Header -->
+
+      <rect x="105" y="165" width="100" height="24" rx="12" fill="#48bb78" opacity="0.15"/>    <rect width="890" height="50" rx="10" fill="#f8f9fa"/>
+
+      <text x="155" y="181" font-family="Arial, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle" font-weight="600">PREMIUM</text>    <text x="20" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">PHOTO</text>
+
+      <text x="155" y="210" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📧 sarah.j@email.com</text>    <text x="120" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">NAME</text>
+
+      <text x="155" y="235" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📱 +1 555-0123</text>    <text x="300" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">EMAIL</text>
+
+      <rect x="25" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>    <text x="520" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">MEMBERSHIP</text>
+
+      <text x="60" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">View</text>    <text x="690" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">STATUS</text>
+
+      <rect x="105" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>    <text x="800" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">ACTIONS</text>
+
+      <text x="140" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Edit</text>    
+
+      <rect x="185" y="250" width="100" height="22" rx="6" fill="#48bb78"/>    <!-- Row 1 -->
+
+      <text x="235" y="265" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="500">✓ Check In</text>    <line x1="0" y1="50" x2="890" y2="50" stroke="#dee2e6" stroke-width="1"/>
+
+    </g>    <circle cx="55" cy="85" r="20" fill="#0d6efd"/>
+
+        <text x="48" y="92" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">JD</text>
+
+    <!-- Card 2 -->    <text x="120" y="92" font-family="Arial, sans-serif" font-size="14" fill="#212529">John Doe</text>
+
+    <g transform="translate(340, 0)">    <text x="300" y="92" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">john.doe@email.com</text>
+
+      <rect width="310" height="280" rx="12" fill="white" filter="url(#shadow)"/>    <text x="520" y="92" font-family="Arial, sans-serif" font-size="14" fill="#212529">Premium Annual</text>
+
+      <circle cx="155" cy="80" r="45" fill="url(#avatarGrad2)"/>    <rect x="690" y="73" width="80" height="25" rx="12" fill="#d1e7dd"/>
+
+      <text x="155" y="90" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle" font-weight="bold">MC</text>    <text x="708" y="90" font-family="Arial, sans-serif" font-size="12" fill="#0f5132">Active</text>
+
+      <text x="155" y="150" font-family="Arial, sans-serif" font-size="18" fill="#2d3748" text-anchor="middle" font-weight="bold">Mike Chen</text>    <text x="810" y="92" font-family="Arial, sans-serif" font-size="14" fill="#0d6efd">View</text>
+
+      <rect x="105" y="165" width="100" height="24" rx="12" fill="#4299e1" opacity="0.15"/>    
+
+      <text x="155" y="181" font-family="Arial, sans-serif" font-size="12" fill="#4299e1" text-anchor="middle" font-weight="600">STANDARD</text>    <!-- Row 2 -->
+
+      <text x="155" y="210" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📧 mike.c@email.com</text>    <line x1="0" y1="120" x2="890" y2="120" stroke="#dee2e6" stroke-width="1"/>
+
+      <text x="155" y="235" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📱 +1 555-0234</text>    <circle cx="55" cy="155" r="20" fill="#198754"/>
+
+      <rect x="25" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>    <text x="46" y="162" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">SA</text>
+
+      <text x="60" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">View</text>    <text x="120" y="162" font-family="Arial, sans-serif" font-size="14" fill="#212529">Sarah Anderson</text>
+
+      <rect x="105" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>    <text x="300" y="162" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">s.anderson@email.com</text>
+
+      <text x="140" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Edit</text>    <text x="520" y="162" font-family="Arial, sans-serif" font-size="14" fill="#212529">Basic Monthly</text>
+
+      <rect x="185" y="250" width="100" height="22" rx="6" fill="#48bb78"/>    <rect x="690" y="143" width="80" height="25" rx="12" fill="#d1e7dd"/>
+
+      <text x="235" y="265" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="500">✓ Check In</text>    <text x="708" y="160" font-family="Arial, sans-serif" font-size="12" fill="#0f5132">Active</text>
+
+    </g>    <text x="810" y="162" font-family="Arial, sans-serif" font-size="14" fill="#0d6efd">View</text>
+
+        
+
+    <!-- Card 3 -->    <!-- Row 3 -->
+
+    <g transform="translate(680, 0)">    <line x1="0" y1="190" x2="890" y2="190" stroke="#dee2e6" stroke-width="1"/>
+
+      <rect width="310" height="280" rx="12" fill="white" filter="url(#shadow)"/>    <circle cx="55" cy="225" r="20" fill="#ffc107"/>
+
+      <circle cx="155" cy="80" r="45" fill="url(#avatarGrad3)"/>    <text x="46" y="232" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">MC</text>
+
+      <text x="155" y="90" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle" font-weight="bold">EM</text>    <text x="120" y="232" font-family="Arial, sans-serif" font-size="14" fill="#212529">Mike Chen</text>
+
+      <text x="155" y="150" font-family="Arial, sans-serif" font-size="18" fill="#2d3748" text-anchor="middle" font-weight="bold">Emily Martinez</text>    <text x="300" y="232" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">mike.c@email.com</text>
+
+      <rect x="105" y="165" width="100" height="24" rx="12" fill="#48bb78" opacity="0.15"/>    <text x="520" y="232" font-family="Arial, sans-serif" font-size="14" fill="#212529">Premium Monthly</text>
+
+      <text x="155" y="181" font-family="Arial, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle" font-weight="600">PREMIUM</text>    <rect x="690" y="213" width="80" height="25" rx="12" fill="#fff3cd"/>
+
+      <text x="155" y="210" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📧 emily.m@email.com</text>    <text x="700" y="230" font-family="Arial, sans-serif" font-size="12" fill="#856404">Expiring</text>
+
+      <text x="155" y="235" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📱 +1 555-0345</text>    <text x="810" y="232" font-family="Arial, sans-serif" font-size="14" fill="#0d6efd">View</text>
+
+      <rect x="25" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>    
+
+      <text x="60" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">View</text>    <!-- Row 4 -->
+
+      <rect x="105" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>    <line x1="0" y1="260" x2="890" y2="260" stroke="#dee2e6" stroke-width="1"/>
+
+      <text x="140" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Edit</text>    <circle cx="55" cy="295" r="20" fill="#dc3545"/>
+
+      <rect x="185" y="250" width="100" height="22" rx="6" fill="#48bb78"/>    <text x="48" y="302" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">ED</text>
+
+      <text x="235" y="265" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="500">✓ Check In</text>    <text x="120" y="302" font-family="Arial, sans-serif" font-size="14" fill="#212529">Emma Davis</text>
+
+    </g>    <text x="300" y="302" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">emma.d@email.com</text>
+
+        <text x="520" y="302" font-family="Arial, sans-serif" font-size="14" fill="#212529">Basic Annual</text>
+
+    <!-- Card 4 -->    <rect x="690" y="283" width="80" height="25" rx="12" fill="#d1e7dd"/>
+
+    <g transform="translate(1020, 0)">    <text x="708" y="300" font-family="Arial, sans-serif" font-size="12" fill="#0f5132">Active</text>
+
+      <rect width="310" height="280" rx="12" fill="white" filter="url(#shadow)"/>    <text x="810" y="302" font-family="Arial, sans-serif" font-size="14" fill="#0d6efd">View</text>
+
+      <circle cx="155" cy="80" r="45" fill="url(#avatarGrad4)"/>    
+
+      <text x="155" y="90" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle" font-weight="bold">DB</text>    <!-- Row 5 -->
+
+      <text x="155" y="150" font-family="Arial, sans-serif" font-size="18" fill="#2d3748" text-anchor="middle" font-weight="bold">David Brown</text>    <line x1="0" y1="330" x2="890" y2="330" stroke="#dee2e6" stroke-width="1"/>
+
+      <rect x="105" y="165" width="100" height="24" rx="12" fill="#4299e1" opacity="0.15"/>    <circle cx="55" cy="365" r="20" fill="#6f42c1"/>
+
+      <text x="155" y="181" font-family="Arial, sans-serif" font-size="12" fill="#4299e1" text-anchor="middle" font-weight="600">STANDARD</text>    <text x="48" y="372" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">RJ</text>
+
+      <text x="155" y="210" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📧 david.b@email.com</text>    <text x="120" y="372" font-family="Arial, sans-serif" font-size="14" fill="#212529">Robert Johnson</text>
+
+      <text x="155" y="235" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📱 +1 555-0456</text>    <text x="300" y="372" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">r.johnson@email.com</text>
+
+      <rect x="25" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>    <text x="520" y="372" font-family="Arial, sans-serif" font-size="14" fill="#212529">Premium Annual</text>
+
+      <text x="60" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">View</text>    <rect x="690" y="353" width="80" height="25" rx="12" fill="#d1e7dd"/>
+
+      <rect x="105" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>    <text x="708" y="370" font-family="Arial, sans-serif" font-size="12" fill="#0f5132">Active</text>
+
+      <text x="140" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Edit</text>    <text x="810" y="372" font-family="Arial, sans-serif" font-size="14" fill="#0d6efd">View</text>
+
+      <rect x="185" y="250" width="100" height="22" rx="6" fill="#48bb78"/>  </g>
+
+      <text x="235" y="265" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="500">✓ Check In</text>  
+
+    </g>  <!-- Pagination -->
+
+  </g>  <g transform="translate(880, 640)">
+
+      <rect width="40" height="40" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+  <!-- Row 2 -->    <text x="15" y="27" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">1</text>
+
+  <g transform="translate(40, 510)">    
+
+    <!-- Card 5 -->    <rect x="50" width="40" height="40" rx="5" fill="#0d6efd"/>
+
+    <g>    <text x="65" y="27" font-family="Arial, sans-serif" font-size="14" fill="white">2</text>
+
+      <rect width="310" height="280" rx="12" fill="white" filter="url(#shadow)"/>    
+
+      <circle cx="155" cy="80" r="45" fill="url(#avatarGrad3)"/>    <rect x="100" width="40" height="40" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+      <text x="155" y="90" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle" font-weight="bold">LW</text>    <text x="115" y="27" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">3</text>
+
+      <text x="155" y="150" font-family="Arial, sans-serif" font-size="18" fill="#2d3748" text-anchor="middle" font-weight="bold">Lisa Wang</text>    
+
+      <rect x="105" y="165" width="100" height="24" rx="12" fill="#ed8936" opacity="0.15"/>    <rect x="150" width="40" height="40" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+      <text x="155" y="181" font-family="Arial, sans-serif" font-size="12" fill="#ed8936" text-anchor="middle" font-weight="600">BASIC</text>    <text x="163" y="27" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">→</text>
+
+      <text x="155" y="210" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📧 lisa.w@email.com</text>  </g>
+
+      <text x="155" y="235" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📱 +1 555-0567</text>  
+
+      <rect x="25" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>  <!-- Watermark -->
+
+      <text x="60" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">View</text>  <text x="600" y="660" font-family="Arial, sans-serif" font-size="12" fill="#adb5bd" text-anchor="middle">Gym Management System - Member Management</text>
+
+      <rect x="105" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/></svg>
+
+      <text x="140" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Edit</text>
+      <rect x="185" y="250" width="100" height="22" rx="6" fill="#48bb78"/>
+      <text x="235" y="265" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="500">✓ Check In</text>
+    </g>
+    
+    <!-- Card 6 -->
+    <g transform="translate(340, 0)">
+      <rect width="310" height="280" rx="12" fill="white" filter="url(#shadow)"/>
+      <circle cx="155" cy="80" r="45" fill="url(#avatarGrad1)"/>
+      <text x="155" y="90" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle" font-weight="bold">JT</text>
+      <text x="155" y="150" font-family="Arial, sans-serif" font-size="18" fill="#2d3748" text-anchor="middle" font-weight="bold">James Taylor</text>
+      <rect x="105" y="165" width="100" height="24" rx="12" fill="#48bb78" opacity="0.15"/>
+      <text x="155" y="181" font-family="Arial, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle" font-weight="600">PREMIUM</text>
+      <text x="155" y="210" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📧 james.t@email.com</text>
+      <text x="155" y="235" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📱 +1 555-0678</text>
+      <rect x="25" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>
+      <text x="60" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">View</text>
+      <rect x="105" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>
+      <text x="140" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Edit</text>
+      <rect x="185" y="250" width="100" height="22" rx="6" fill="#48bb78"/>
+      <text x="235" y="265" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="500">✓ Check In</text>
+    </g>
+    
+    <!-- Card 7 -->
+    <g transform="translate(680, 0)">
+      <rect width="310" height="280" rx="12" fill="white" filter="url(#shadow)"/>
+      <circle cx="155" cy="80" r="45" fill="url(#avatarGrad2)"/>
+      <text x="155" y="90" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle" font-weight="bold">AP</text>
+      <text x="155" y="150" font-family="Arial, sans-serif" font-size="18" fill="#2d3748" text-anchor="middle" font-weight="bold">Anna Patel</text>
+      <rect x="105" y="165" width="100" height="24" rx="12" fill="#4299e1" opacity="0.15"/>
+      <text x="155" y="181" font-family="Arial, sans-serif" font-size="12" fill="#4299e1" text-anchor="middle" font-weight="600">STANDARD</text>
+      <text x="155" y="210" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📧 anna.p@email.com</text>
+      <text x="155" y="235" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📱 +1 555-0789</text>
+      <rect x="25" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>
+      <text x="60" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">View</text>
+      <rect x="105" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>
+      <text x="140" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Edit</text>
+      <rect x="185" y="250" width="100" height="22" rx="6" fill="#48bb78"/>
+      <text x="235" y="265" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="500">✓ Check In</text>
+    </g>
+    
+    <!-- Card 8 -->
+    <g transform="translate(1020, 0)">
+      <rect width="310" height="280" rx="12" fill="white" filter="url(#shadow)"/>
+      <circle cx="155" cy="80" r="45" fill="url(#avatarGrad4)"/>
+      <text x="155" y="90" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle" font-weight="bold">RG</text>
+      <text x="155" y="150" font-family="Arial, sans-serif" font-size="18" fill="#2d3748" text-anchor="middle" font-weight="bold">Ryan Garcia</text>
+      <rect x="105" y="165" width="100" height="24" rx="12" fill="#48bb78" opacity="0.15"/>
+      <text x="155" y="181" font-family="Arial, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle" font-weight="600">PREMIUM</text>
+      <text x="155" y="210" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📧 ryan.g@email.com</text>
+      <text x="155" y="235" font-family="Arial, sans-serif" font-size="14" fill="#718096" text-anchor="middle">📱 +1 555-0890</text>
+      <rect x="25" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>
+      <text x="60" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">View</text>
+      <rect x="105" y="250" width="70" height="22" rx="6" fill="#e2e8f0"/>
+      <text x="140" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Edit</text>
+      <rect x="185" y="250" width="100" height="22" rx="6" fill="#48bb78"/>
+      <text x="235" y="265" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="500">✓ Check In</text>
+    </g>
   </g>
-  
-  <!-- Members Table -->
-  <g transform="translate(280, 230)">
-    <rect width="890" height="400" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    
-    <!-- Table Header -->
-    <rect width="890" height="50" rx="10" fill="#f8f9fa"/>
-    <text x="20" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">PHOTO</text>
-    <text x="120" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">NAME</text>
-    <text x="300" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">EMAIL</text>
-    <text x="520" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">MEMBERSHIP</text>
-    <text x="690" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">STATUS</text>
-    <text x="800" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">ACTIONS</text>
-    
-    <!-- Row 1 -->
-    <line x1="0" y1="50" x2="890" y2="50" stroke="#dee2e6" stroke-width="1"/>
-    <circle cx="55" cy="85" r="20" fill="#0d6efd"/>
-    <text x="48" y="92" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">JD</text>
-    <text x="120" y="92" font-family="Arial, sans-serif" font-size="14" fill="#212529">John Doe</text>
-    <text x="300" y="92" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">john.doe@email.com</text>
-    <text x="520" y="92" font-family="Arial, sans-serif" font-size="14" fill="#212529">Premium Annual</text>
-    <rect x="690" y="73" width="80" height="25" rx="12" fill="#d1e7dd"/>
-    <text x="708" y="90" font-family="Arial, sans-serif" font-size="12" fill="#0f5132">Active</text>
-    <text x="810" y="92" font-family="Arial, sans-serif" font-size="14" fill="#0d6efd">View</text>
-    
-    <!-- Row 2 -->
-    <line x1="0" y1="120" x2="890" y2="120" stroke="#dee2e6" stroke-width="1"/>
-    <circle cx="55" cy="155" r="20" fill="#198754"/>
-    <text x="46" y="162" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">SA</text>
-    <text x="120" y="162" font-family="Arial, sans-serif" font-size="14" fill="#212529">Sarah Anderson</text>
-    <text x="300" y="162" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">s.anderson@email.com</text>
-    <text x="520" y="162" font-family="Arial, sans-serif" font-size="14" fill="#212529">Basic Monthly</text>
-    <rect x="690" y="143" width="80" height="25" rx="12" fill="#d1e7dd"/>
-    <text x="708" y="160" font-family="Arial, sans-serif" font-size="12" fill="#0f5132">Active</text>
-    <text x="810" y="162" font-family="Arial, sans-serif" font-size="14" fill="#0d6efd">View</text>
-    
-    <!-- Row 3 -->
-    <line x1="0" y1="190" x2="890" y2="190" stroke="#dee2e6" stroke-width="1"/>
-    <circle cx="55" cy="225" r="20" fill="#ffc107"/>
-    <text x="46" y="232" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">MC</text>
-    <text x="120" y="232" font-family="Arial, sans-serif" font-size="14" fill="#212529">Mike Chen</text>
-    <text x="300" y="232" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">mike.c@email.com</text>
-    <text x="520" y="232" font-family="Arial, sans-serif" font-size="14" fill="#212529">Premium Monthly</text>
-    <rect x="690" y="213" width="80" height="25" rx="12" fill="#fff3cd"/>
-    <text x="700" y="230" font-family="Arial, sans-serif" font-size="12" fill="#856404">Expiring</text>
-    <text x="810" y="232" font-family="Arial, sans-serif" font-size="14" fill="#0d6efd">View</text>
-    
-    <!-- Row 4 -->
-    <line x1="0" y1="260" x2="890" y2="260" stroke="#dee2e6" stroke-width="1"/>
-    <circle cx="55" cy="295" r="20" fill="#dc3545"/>
-    <text x="48" y="302" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">ED</text>
-    <text x="120" y="302" font-family="Arial, sans-serif" font-size="14" fill="#212529">Emma Davis</text>
-    <text x="300" y="302" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">emma.d@email.com</text>
-    <text x="520" y="302" font-family="Arial, sans-serif" font-size="14" fill="#212529">Basic Annual</text>
-    <rect x="690" y="283" width="80" height="25" rx="12" fill="#d1e7dd"/>
-    <text x="708" y="300" font-family="Arial, sans-serif" font-size="12" fill="#0f5132">Active</text>
-    <text x="810" y="302" font-family="Arial, sans-serif" font-size="14" fill="#0d6efd">View</text>
-    
-    <!-- Row 5 -->
-    <line x1="0" y1="330" x2="890" y2="330" stroke="#dee2e6" stroke-width="1"/>
-    <circle cx="55" cy="365" r="20" fill="#6f42c1"/>
-    <text x="48" y="372" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">RJ</text>
-    <text x="120" y="372" font-family="Arial, sans-serif" font-size="14" fill="#212529">Robert Johnson</text>
-    <text x="300" y="372" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">r.johnson@email.com</text>
-    <text x="520" y="372" font-family="Arial, sans-serif" font-size="14" fill="#212529">Premium Annual</text>
-    <rect x="690" y="353" width="80" height="25" rx="12" fill="#d1e7dd"/>
-    <text x="708" y="370" font-family="Arial, sans-serif" font-size="12" fill="#0f5132">Active</text>
-    <text x="810" y="372" font-family="Arial, sans-serif" font-size="14" fill="#0d6efd">View</text>
-  </g>
-  
-  <!-- Pagination -->
-  <g transform="translate(880, 640)">
-    <rect width="40" height="40" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    <text x="15" y="27" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">1</text>
-    
-    <rect x="50" width="40" height="40" rx="5" fill="#0d6efd"/>
-    <text x="65" y="27" font-family="Arial, sans-serif" font-size="14" fill="white">2</text>
-    
-    <rect x="100" width="40" height="40" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    <text x="115" y="27" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">3</text>
-    
-    <rect x="150" width="40" height="40" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    <text x="163" y="27" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">→</text>
-  </g>
-  
-  <!-- Watermark -->
-  <text x="600" y="660" font-family="Arial, sans-serif" font-size="12" fill="#adb5bd" text-anchor="middle">Gym Management System - Member Management</text>
 </svg>

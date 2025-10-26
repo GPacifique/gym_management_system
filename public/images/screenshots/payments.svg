@@ -1,162 +1,344 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
-  <defs>
-    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6f42c1;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#5a32a3;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  
-  <!-- Background -->
-  <rect width="1200" height="675" fill="#f8f9fa"/>
-  
-  <!-- Browser Chrome -->
-  <rect width="1200" height="40" fill="#e9ecef"/>
-  <circle cx="20" cy="20" r="6" fill="#ff5f56"/>
-  <circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
-  <circle cx="60" cy="20" r="6" fill="#27c93f"/>
-  
-  <!-- Header -->
-  <rect y="40" width="1200" height="80" fill="url(#grad4)"/>
-  <text x="60" y="95" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Payment & Billing</text>
-  <rect x="1030" y="60" width="140" height="40" rx="5" fill="white"/>
-  <text x="1045" y="87" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#6f42c1">+ Record Payment</text>
-  
-  <!-- Sidebar -->
-  <rect y="120" width="250" height="555" fill="#212529"/>
-  
-  <!-- Sidebar Menu Items -->
-  <rect x="20" y="140" width="210" height="40" rx="5" fill="#343a40"/>
-  <text x="40" y="167" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">📊 Dashboard</text>
-  
-  <rect x="20" y="190" width="210" height="40" rx="5" fill="#343a40"/>
-  <text x="40" y="217" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">👥 Members</text>
-  
-  <rect x="20" y="240" width="210" height="40" rx="5" fill="#343a40"/>
-  <text x="40" y="267" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">💪 Trainers</text>
-  
-  <rect x="20" y="290" width="210" height="40" rx="5" fill="#343a40"/>
-  <text x="40" y="317" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">📅 Classes</text>
-  
-  <rect x="20" y="340" width="210" height="40" rx="5" fill="#6f42c1"/>
-  <text x="40" y="367" font-family="Arial, sans-serif" font-size="14" fill="white">💰 Payments</text>
-  
-  <!-- Revenue Summary Cards -->
-  <g transform="translate(280, 150)">
-    <!-- Today's Revenue -->
-    <rect width="280" height="100" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Today's Revenue</text>
-    <text x="20" y="65" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#28a745">$2,450</text>
-    <text x="20" y="85" font-family="Arial, sans-serif" font-size="12" fill="#28a745">↑ 15 payments</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+
+  <defs>  <defs>
+
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />      <stop offset="0%" style="stop-color:#6f42c1;stop-opacity:1" />
+
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />      <stop offset="100%" style="stop-color:#5a32a3;stop-opacity:1" />
+
+    </linearGradient>    </linearGradient>
+
+    <linearGradient id="revenueGrad" x1="0%" y1="0%" x2="100%" y2="100%">  </defs>
+
+      <stop offset="0%" style="stop-color:#48bb78;stop-opacity:0.1" />  
+
+      <stop offset="100%" style="stop-color:#48bb78;stop-opacity:0.05" />  <!-- Background -->
+
+    </linearGradient>  <rect width="1200" height="675" fill="#f8f9fa"/>
+
+    <linearGradient id="pendingGrad" x1="0%" y1="0%" x2="100%" y2="100%">  
+
+      <stop offset="0%" style="stop-color:#ed8936;stop-opacity:0.1" />  <!-- Browser Chrome -->
+
+      <stop offset="100%" style="stop-color:#ed8936;stop-opacity:0.05" />  <rect width="1200" height="40" fill="#e9ecef"/>
+
+    </linearGradient>  <circle cx="20" cy="20" r="6" fill="#ff5f56"/>
+
+    <filter id="shadow">  <circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
+
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.1"/>  <circle cx="60" cy="20" r="6" fill="#27c93f"/>
+
+    </filter>  
+
+  </defs>  <!-- Header -->
+
+    <rect y="40" width="1200" height="80" fill="url(#grad4)"/>
+
+  <!-- Background -->  <text x="60" y="95" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Payment & Billing</text>
+
+  <rect width="1400" height="900" fill="#f7fafc"/>  <rect x="1030" y="60" width="140" height="40" rx="5" fill="white"/>
+
+    <text x="1045" y="87" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#6f42c1">+ Record Payment</text>
+
+  <!-- Header -->  
+
+  <rect width="1400" height="80" fill="url(#headerGrad)"/>  <!-- Sidebar -->
+
+  <circle cx="40" cy="40" r="22" fill="white" opacity="0.2"/>  <rect y="120" width="250" height="555" fill="#212529"/>
+
+  <text x="40" y="48" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">G</text>  
+
+  <text x="75" y="52" font-family="Arial, sans-serif" font-size="26" fill="white" font-weight="bold">GymMate Payments</text>  <!-- Sidebar Menu Items -->
+
+    <rect x="20" y="140" width="210" height="40" rx="5" fill="#343a40"/>
+
+  <!-- Stats Cards Row -->  <text x="40" y="167" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">📊 Dashboard</text>
+
+  <g transform="translate(40, 120)">  
+
+    <!-- Total Revenue Card -->  <rect x="20" y="190" width="210" height="40" rx="5" fill="#343a40"/>
+
+    <rect width="410" height="140" rx="12" fill="url(#revenueGrad)" filter="url(#shadow)"/>  <text x="40" y="217" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">👥 Members</text>
+
+    <rect width="410" height="140" rx="12" fill="none" stroke="#48bb78" stroke-width="1" opacity="0.3"/>  
+
+    <text x="30" y="40" font-family="Arial, sans-serif" font-size="16" fill="#718096" font-weight="500">This Month's Revenue</text>  <rect x="20" y="240" width="210" height="40" rx="5" fill="#343a40"/>
+
+    <text x="30" y="85" font-family="Arial, sans-serif" font-size="48" fill="#2d3748" font-weight="bold">$45,289</text>  <text x="40" y="267" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">💪 Trainers</text>
+
+    <text x="30" y="115" font-family="Arial, sans-serif" font-size="14" fill="#48bb78" font-weight="600">↗ +15.3% from last month</text>  
+
+  </g>  <rect x="20" y="290" width="210" height="40" rx="5" fill="#343a40"/>
+
+    <text x="40" y="317" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">📅 Classes</text>
+
+  <g transform="translate(480, 120)">  
+
+    <!-- Pending Payments Card -->  <rect x="20" y="340" width="210" height="40" rx="5" fill="#6f42c1"/>
+
+    <rect width="410" height="140" rx="12" fill="url(#pendingGrad)" filter="url(#shadow)"/>  <text x="40" y="367" font-family="Arial, sans-serif" font-size="14" fill="white">💰 Payments</text>
+
+    <rect width="410" height="140" rx="12" fill="none" stroke="#ed8936" stroke-width="1" opacity="0.3"/>  
+
+    <text x="30" y="40" font-family="Arial, sans-serif" font-size="16" fill="#718096" font-weight="500">Pending Payments</text>  <!-- Revenue Summary Cards -->
+
+    <text x="30" y="85" font-family="Arial, sans-serif" font-size="48" fill="#2d3748" font-weight="bold">$3,450</text>  <g transform="translate(280, 150)">
+
+    <text x="30" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ed8936" font-weight="600">⚠ 12 overdue invoices</text>    <!-- Today's Revenue -->
+
+  </g>    <rect width="280" height="100" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Today's Revenue</text>
+
+  <g transform="translate(920, 120)">    <text x="20" y="65" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#28a745">$2,450</text>
+
+    <!-- Payment Methods Card -->    <text x="20" y="85" font-family="Arial, sans-serif" font-size="12" fill="#28a745">↑ 15 payments</text>
+
+    <rect width="450" height="140" rx="12" fill="white" filter="url(#shadow)"/>  </g>
+
+    <text x="30" y="40" font-family="Arial, sans-serif" font-size="16" fill="#718096" font-weight="500">Payment Methods</text>  
+
+      <g transform="translate(590, 150)">
+
+    <!-- Pie chart slices -->    <!-- This Month -->
+
+    <circle cx="110" cy="90" r="40" fill="transparent" stroke="#667eea" stroke-width="80"     <rect width="280" height="100" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+            stroke-dasharray="113 251" transform="rotate(-90 110 90)"/>    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">This Month</text>
+
+    <circle cx="110" cy="90" r="40" fill="transparent" stroke="#48bb78" stroke-width="80"     <text x="20" y="65" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#0d6efd">$45,890</text>
+
+            stroke-dasharray="75 289" stroke-dashoffset="-113" transform="rotate(-90 110 90)"/>    <text x="20" y="85" font-family="Arial, sans-serif" font-size="12" fill="#28a745">↑ 18% vs last month</text>
+
+    <circle cx="110" cy="90" r="40" fill="transparent" stroke="#ed8936" stroke-width="80"   </g>
+
+            stroke-dasharray="63 301" stroke-dashoffset="-188" transform="rotate(-90 110 90)"/>  
+
+      <g transform="translate(900, 150)">
+
+    <!-- Legend -->    <!-- Pending Payments -->
+
+    <g transform="translate(220, 50)">    <rect width="270" height="100" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+      <rect x="0" y="0" width="12" height="12" rx="2" fill="#667eea"/>    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Pending Payments</text>
+
+      <text x="20" y="10" font-family="Arial, sans-serif" font-size="13" fill="#2d3748">Credit Card (45%)</text>    <text x="20" y="65" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffc107">$3,200</text>
+
+          <text x="20" y="85" font-family="Arial, sans-serif" font-size="12" fill="#dc3545">8 overdue</text>
+
+      <rect x="0" y="25" width="12" height="12" rx="2" fill="#48bb78"/>  </g>
+
+      <text x="20" y="35" font-family="Arial, sans-serif" font-size="13" fill="#2d3748">Bank Transfer (30%)</text>  
+
+        <!-- Filters -->
+
+      <rect x="0" y="50" width="12" height="12" rx="2" fill="#ed8936"/>  <g transform="translate(280, 280)">
+
+      <text x="20" y="60" font-family="Arial, sans-serif" font-size="13" fill="#2d3748">Cash (25%)</text>    <rect width="200" height="45" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+    </g>    <text x="15" y="28" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Filter: All Types ▼</text>
+
+  </g>    
+
+      <rect x="220" width="200" height="45" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+  <!-- Payment History Table -->    <text x="235" y="28" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Date: This Month ▼</text>
+
+  <g transform="translate(40, 290)">    
+
+    <rect width="1320" height="570" rx="12" fill="white" filter="url(#shadow)"/>    <rect x="440" width="200" height="45" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+        <text x="455" y="28" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Status: All ▼</text>
+
+    <!-- Table header -->    
+
+    <text x="30" y="40" font-family="Arial, sans-serif" font-size="22" fill="#2d3748" font-weight="bold">Recent Transactions</text>    <rect x="660" width="150" height="45" rx="5" fill="#0d6efd"/>
+
+    <text x="1240" y="40" font-family="Arial, sans-serif" font-size="14" fill="#667eea" text-anchor="end" font-weight="500">View All →</text>    <text x="685" y="28" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Export 📥</text>
+
+      </g>
+
+    <rect x="20" y="60" width="1280" height="50" rx="6" fill="#f7fafc"/>  
+
+    <text x="40" y="90" font-family="Arial, sans-serif" font-size="14" fill="#4a5568" font-weight="600">Date</text>  <!-- Payments Table -->
+
+    <text x="200" y="90" font-family="Arial, sans-serif" font-size="14" fill="#4a5568" font-weight="600">Member</text>  <g transform="translate(280, 350)">
+
+    <text x="520" y="90" font-family="Arial, sans-serif" font-size="14" fill="#4a5568" font-weight="600">Description</text>    <rect width="890" height="280" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+    <text x="850" y="90" font-family="Arial, sans-serif" font-size="14" fill="#4a5568" font-weight="600">Method</text>    
+
+    <text x="1050" y="90" font-family="Arial, sans-serif" font-size="14" fill="#4a5568" font-weight="600">Amount</text>    <!-- Table Header -->
+
+    <text x="1210" y="90" font-family="Arial, sans-serif" font-size="14" fill="#4a5568" font-weight="600">Status</text>    <rect width="890" height="45" rx="10" fill="#f8f9fa"/>
+
+        <text x="20" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">DATE</text>
+
+    <line x1="20" y1="115" x2="1300" y2="115" stroke="#e2e8f0" stroke-width="1"/>    <text x="150" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">MEMBER</text>
+
+        <text x="350" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">TYPE</text>
+
+    <!-- Row 1 -->    <text x="530" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">AMOUNT</text>
+
+    <g transform="translate(0, 130)">    <text x="650" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">METHOD</text>
+
+      <text x="40" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748">Oct 26, 2025</text>    <text x="790" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">STATUS</text>
+
+      <text x="200" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748" font-weight="500">Sarah Johnson</text>    
+
+      <text x="520" y="30" font-family="Arial, sans-serif" font-size="14" fill="#718096">Premium Monthly Subscription</text>    <!-- Row 1 -->
+
+      <rect x="850" y="18" width="100" height="24" rx="12" fill="#667eea" opacity="0.1"/>    <line x1="0" y1="45" x2="890" y2="45" stroke="#dee2e6" stroke-width="1"/>
+
+      <text x="900" y="33" font-family="Arial, sans-serif" font-size="12" fill="#667eea" text-anchor="middle" font-weight="500">💳 Credit</text>    <text x="20" y="75" font-family="Arial, sans-serif" font-size="13" fill="#495057">Oct 25, 2025</text>
+
+      <text x="1050" y="30" font-family="Arial, sans-serif" font-size="15" fill="#2d3748" font-weight="600">$89.99</text>    <text x="150" y="75" font-family="Arial, sans-serif" font-size="13" fill="#212529">John Doe</text>
+
+      <rect x="1180" y="18" width="80" height="24" rx="12" fill="#48bb78" opacity="0.15"/>    <text x="350" y="75" font-family="Arial, sans-serif" font-size="13" fill="#495057">Monthly Membership</text>
+
+      <text x="1220" y="33" font-family="Arial, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle" font-weight="600">Paid</text>    <text x="530" y="75" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#28a745">$129.00</text>
+
+    </g>    <text x="650" y="75" font-family="Arial, sans-serif" font-size="13" fill="#495057">Credit Card</text>
+
+    <line x1="20" y1="175" x2="1300" y2="175" stroke="#e2e8f0" stroke-width="1"/>    <rect x="785" y="60" width="80" height="22" rx="11" fill="#d1e7dd"/>
+
+        <text x="800" y="76" font-family="Arial, sans-serif" font-size="11" fill="#0f5132">Completed</text>
+
+    <!-- Row 2 -->    
+
+    <g transform="translate(0, 190)">    <!-- Row 2 -->
+
+      <text x="40" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748">Oct 25, 2025</text>    <line x1="0" y1="95" x2="890" y2="95" stroke="#dee2e6" stroke-width="1"/>
+
+      <text x="200" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748" font-weight="500">Mike Chen</text>    <text x="20" y="125" font-family="Arial, sans-serif" font-size="13" fill="#495057">Oct 25, 2025</text>
+
+      <text x="520" y="30" font-family="Arial, sans-serif" font-size="14" fill="#718096">Standard Monthly Subscription</text>    <text x="150" y="125" font-family="Arial, sans-serif" font-size="13" fill="#212529">Sarah Anderson</text>
+
+      <rect x="850" y="18" width="100" height="24" rx="12" fill="#48bb78" opacity="0.1"/>    <text x="350" y="125" font-family="Arial, sans-serif" font-size="13" fill="#495057">Personal Training</text>
+
+      <text x="900" y="33" font-family="Arial, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle" font-weight="500">🏦 Bank</text>    <text x="530" y="125" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#28a745">$75.00</text>
+
+      <text x="1050" y="30" font-family="Arial, sans-serif" font-size="15" fill="#2d3748" font-weight="600">$59.99</text>    <text x="650" y="125" font-family="Arial, sans-serif" font-size="13" fill="#495057">Cash</text>
+
+      <rect x="1180" y="18" width="80" height="24" rx="12" fill="#48bb78" opacity="0.15"/>    <rect x="785" y="110" width="80" height="22" rx="11" fill="#d1e7dd"/>
+
+      <text x="1220" y="33" font-family="Arial, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle" font-weight="600">Paid</text>    <text x="800" y="126" font-family="Arial, sans-serif" font-size="11" fill="#0f5132">Completed</text>
+
+    </g>    
+
+    <line x1="20" y1="235" x2="1300" y2="235" stroke="#e2e8f0" stroke-width="1"/>    <!-- Row 3 -->
+
+        <line x1="0" y1="145" x2="890" y2="145" stroke="#dee2e6" stroke-width="1"/>
+
+    <!-- Row 3 -->    <text x="20" y="175" font-family="Arial, sans-serif" font-size="13" fill="#495057">Oct 24, 2025</text>
+
+    <g transform="translate(0, 250)">    <text x="150" y="175" font-family="Arial, sans-serif" font-size="13" fill="#212529">Mike Chen</text>
+
+      <text x="40" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748">Oct 24, 2025</text>    <text x="350" y="175" font-family="Arial, sans-serif" font-size="13" fill="#495057">Annual Membership</text>
+
+      <text x="200" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748" font-weight="500">Emily Martinez</text>    <text x="530" y="175" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#28a745">$1,299.00</text>
+
+      <text x="520" y="30" font-family="Arial, sans-serif" font-size="14" fill="#718096">Personal Training Session (5 pack)</text>    <text x="650" y="175" font-family="Arial, sans-serif" font-size="13" fill="#495057">Bank Transfer</text>
+
+      <rect x="850" y="18" width="100" height="24" rx="12" fill="#ed8936" opacity="0.1"/>    <rect x="785" y="160" width="80" height="22" rx="11" fill="#fff3cd"/>
+
+      <text x="900" y="33" font-family="Arial, sans-serif" font-size="12" fill="#ed8936" text-anchor="middle" font-weight="500">💵 Cash</text>    <text x="800" y="176" font-family="Arial, sans-serif" font-size="11" fill="#856404">Pending</text>
+
+      <text x="1050" y="30" font-family="Arial, sans-serif" font-size="15" fill="#2d3748" font-weight="600">$250.00</text>    
+
+      <rect x="1180" y="18" width="80" height="24" rx="12" fill="#48bb78" opacity="0.15"/>    <!-- Row 4 -->
+
+      <text x="1220" y="33" font-family="Arial, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle" font-weight="600">Paid</text>    <line x1="0" y1="195" x2="890" y2="195" stroke="#dee2e6" stroke-width="1"/>
+
+    </g>    <text x="20" y="225" font-family="Arial, sans-serif" font-size="13" fill="#495057">Oct 23, 2025</text>
+
+    <line x1="20" y1="295" x2="1300" y2="295" stroke="#e2e8f0" stroke-width="1"/>    <text x="150" y="225" font-family="Arial, sans-serif" font-size="13" fill="#212529">Emma Davis</text>
+
+        <text x="350" y="225" font-family="Arial, sans-serif" font-size="13" fill="#495057">Monthly Membership</text>
+
+    <!-- Row 4 -->    <text x="530" y="225" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#28a745">$89.00</text>
+
+    <g transform="translate(0, 310)">    <text x="650" y="225" font-family="Arial, sans-serif" font-size="13" fill="#495057">Credit Card</text>
+
+      <text x="40" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748">Oct 23, 2025</text>    <rect x="785" y="210" width="80" height="22" rx="11" fill="#d1e7dd"/>
+
+      <text x="200" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748" font-weight="500">David Brown</text>    <text x="800" y="226" font-family="Arial, sans-serif" font-size="11" fill="#0f5132">Completed</text>
+
+      <text x="520" y="30" font-family="Arial, sans-serif" font-size="14" fill="#718096">Standard Monthly Subscription</text>    
+
+      <rect x="850" y="18" width="100" height="24" rx="12" fill="#667eea" opacity="0.1"/>    <!-- Row 5 -->
+
+      <text x="900" y="33" font-family="Arial, sans-serif" font-size="12" fill="#667eea" text-anchor="middle" font-weight="500">💳 Credit</text>    <line x1="0" y1="245" x2="890" y2="245" stroke="#dee2e6" stroke-width="1"/>
+
+      <text x="1050" y="30" font-family="Arial, sans-serif" font-size="15" fill="#2d3748" font-weight="600">$59.99</text>    <text x="20" y="270" font-family="Arial, sans-serif" font-size="13" fill="#495057">Oct 22, 2025</text>
+
+      <rect x="1180" y="18" width="80" height="24" rx="12" fill="#ed8936" opacity="0.15"/>    <text x="150" y="270" font-family="Arial, sans-serif" font-size="13" fill="#212529">Robert Johnson</text>
+
+      <text x="1220" y="33" font-family="Arial, sans-serif" font-size="12" fill="#ed8936" text-anchor="middle" font-weight="600">Pending</text>    <text x="350" y="270" font-family="Arial, sans-serif" font-size="13" fill="#495057">Class Package</text>
+
+    </g>    <text x="530" y="270" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#dc3545">$150.00</text>
+
+    <line x1="20" y1="355" x2="1300" y2="355" stroke="#e2e8f0" stroke-width="1"/>    <text x="650" y="270" font-family="Arial, sans-serif" font-size="13" fill="#495057">-</text>
+
+        <rect x="785" y="255" width="80" height="22" rx="11" fill="#f8d7da"/>
+
+    <!-- Row 5 -->    <text x="802" y="271" font-family="Arial, sans-serif" font-size="11" fill="#721c24">Overdue</text>
+
+    <g transform="translate(0, 370)">  </g>
+
+      <text x="40" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748">Oct 22, 2025</text>  
+
+      <text x="200" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748" font-weight="500">Lisa Wang</text>  <!-- Quick Actions Panel -->
+
+      <text x="520" y="30" font-family="Arial, sans-serif" font-size="14" fill="#718096">Basic Monthly Subscription</text>  <g transform="translate(280, 645)">
+
+      <rect x="850" y="18" width="100" height="24" rx="12" fill="#48bb78" opacity="0.1"/>    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#495057">Quick Actions:</text>
+
+      <text x="900" y="33" font-family="Arial, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle" font-weight="500">🏦 Bank</text>    <rect x="120" width="140" height="35" rx="5" fill="#0d6efd"/>
+
+      <text x="1050" y="30" font-family="Arial, sans-serif" font-size="15" fill="#2d3748" font-weight="600">$39.99</text>    <text x="140" y="23" font-family="Arial, sans-serif" font-size="13" fill="white">Process Payment</text>
+
+      <rect x="1180" y="18" width="80" height="24" rx="12" fill="#48bb78" opacity="0.15"/>    
+
+      <text x="1220" y="33" font-family="Arial, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle" font-weight="600">Paid</text>    <rect x="275" width="140" height="35" rx="5" fill="#198754"/>
+
+    </g>    <text x="295" y="23" font-family="Arial, sans-serif" font-size="13" fill="white">Send Invoice</text>
+
+    <line x1="20" y1="415" x2="1300" y2="415" stroke="#e2e8f0" stroke-width="1"/>    
+
+        <rect x="430" width="140" height="35" rx="5" fill="#ffc107"/>
+
+    <!-- Row 6 -->    <text x="445" y="23" font-family="Arial, sans-serif" font-size="13" fill="#212529">Send Reminder</text>
+
+    <g transform="translate(0, 430)">  </g>
+
+      <text x="40" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748">Oct 21, 2025</text>  
+
+      <text x="200" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748" font-weight="500">James Taylor</text>  <!-- Watermark -->
+
+      <text x="520" y="30" font-family="Arial, sans-serif" font-size="14" fill="#718096">Premium Yearly Subscription</text>  <text x="600" y="660" font-family="Arial, sans-serif" font-size="12" fill="#adb5bd" text-anchor="middle">Gym Management System - Payment & Billing</text>
+
+      <rect x="850" y="18" width="100" height="24" rx="12" fill="#667eea" opacity="0.1"/></svg>
+
+      <text x="900" y="33" font-family="Arial, sans-serif" font-size="12" fill="#667eea" text-anchor="middle" font-weight="500">💳 Credit</text>
+      <text x="1050" y="30" font-family="Arial, sans-serif" font-size="15" fill="#2d3748" font-weight="600">$899.99</text>
+      <rect x="1180" y="18" width="80" height="24" rx="12" fill="#48bb78" opacity="0.15"/>
+      <text x="1220" y="33" font-family="Arial, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle" font-weight="600">Paid</text>
+    </g>
+    <line x1="20" y1="475" x2="1300" y2="475" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- Row 7 -->
+    <g transform="translate(0, 490)">
+      <text x="40" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748">Oct 20, 2025</text>
+      <text x="200" y="30" font-family="Arial, sans-serif" font-size="14" fill="#2d3748" font-weight="500">Anna Patel</text>
+      <text x="520" y="30" font-family="Arial, sans-serif" font-size="14" fill="#718096">Standard Monthly Subscription</text>
+      <rect x="850" y="18" width="100" height="24" rx="12" fill="#ed8936" opacity="0.1"/>
+      <text x="900" y="33" font-family="Arial, sans-serif" font-size="12" fill="#ed8936" text-anchor="middle" font-weight="500">💵 Cash</text>
+      <text x="1050" y="30" font-family="Arial, sans-serif" font-size="15" fill="#2d3748" font-weight="600">$59.99</text>
+      <rect x="1180" y="18" width="80" height="24" rx="12" fill="#48bb78" opacity="0.15"/>
+      <text x="1220" y="33" font-family="Arial, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle" font-weight="600">Paid</text>
+    </g>
   </g>
-  
-  <g transform="translate(590, 150)">
-    <!-- This Month -->
-    <rect width="280" height="100" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">This Month</text>
-    <text x="20" y="65" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#0d6efd">$45,890</text>
-    <text x="20" y="85" font-family="Arial, sans-serif" font-size="12" fill="#28a745">↑ 18% vs last month</text>
-  </g>
-  
-  <g transform="translate(900, 150)">
-    <!-- Pending Payments -->
-    <rect width="270" height="100" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Pending Payments</text>
-    <text x="20" y="65" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffc107">$3,200</text>
-    <text x="20" y="85" font-family="Arial, sans-serif" font-size="12" fill="#dc3545">8 overdue</text>
-  </g>
-  
-  <!-- Filters -->
-  <g transform="translate(280, 280)">
-    <rect width="200" height="45" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    <text x="15" y="28" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Filter: All Types ▼</text>
-    
-    <rect x="220" width="200" height="45" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    <text x="235" y="28" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Date: This Month ▼</text>
-    
-    <rect x="440" width="200" height="45" rx="5" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    <text x="455" y="28" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Status: All ▼</text>
-    
-    <rect x="660" width="150" height="45" rx="5" fill="#0d6efd"/>
-    <text x="685" y="28" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Export 📥</text>
-  </g>
-  
-  <!-- Payments Table -->
-  <g transform="translate(280, 350)">
-    <rect width="890" height="280" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
-    
-    <!-- Table Header -->
-    <rect width="890" height="45" rx="10" fill="#f8f9fa"/>
-    <text x="20" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">DATE</text>
-    <text x="150" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">MEMBER</text>
-    <text x="350" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">TYPE</text>
-    <text x="530" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">AMOUNT</text>
-    <text x="650" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">METHOD</text>
-    <text x="790" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">STATUS</text>
-    
-    <!-- Row 1 -->
-    <line x1="0" y1="45" x2="890" y2="45" stroke="#dee2e6" stroke-width="1"/>
-    <text x="20" y="75" font-family="Arial, sans-serif" font-size="13" fill="#495057">Oct 25, 2025</text>
-    <text x="150" y="75" font-family="Arial, sans-serif" font-size="13" fill="#212529">John Doe</text>
-    <text x="350" y="75" font-family="Arial, sans-serif" font-size="13" fill="#495057">Monthly Membership</text>
-    <text x="530" y="75" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#28a745">$129.00</text>
-    <text x="650" y="75" font-family="Arial, sans-serif" font-size="13" fill="#495057">Credit Card</text>
-    <rect x="785" y="60" width="80" height="22" rx="11" fill="#d1e7dd"/>
-    <text x="800" y="76" font-family="Arial, sans-serif" font-size="11" fill="#0f5132">Completed</text>
-    
-    <!-- Row 2 -->
-    <line x1="0" y1="95" x2="890" y2="95" stroke="#dee2e6" stroke-width="1"/>
-    <text x="20" y="125" font-family="Arial, sans-serif" font-size="13" fill="#495057">Oct 25, 2025</text>
-    <text x="150" y="125" font-family="Arial, sans-serif" font-size="13" fill="#212529">Sarah Anderson</text>
-    <text x="350" y="125" font-family="Arial, sans-serif" font-size="13" fill="#495057">Personal Training</text>
-    <text x="530" y="125" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#28a745">$75.00</text>
-    <text x="650" y="125" font-family="Arial, sans-serif" font-size="13" fill="#495057">Cash</text>
-    <rect x="785" y="110" width="80" height="22" rx="11" fill="#d1e7dd"/>
-    <text x="800" y="126" font-family="Arial, sans-serif" font-size="11" fill="#0f5132">Completed</text>
-    
-    <!-- Row 3 -->
-    <line x1="0" y1="145" x2="890" y2="145" stroke="#dee2e6" stroke-width="1"/>
-    <text x="20" y="175" font-family="Arial, sans-serif" font-size="13" fill="#495057">Oct 24, 2025</text>
-    <text x="150" y="175" font-family="Arial, sans-serif" font-size="13" fill="#212529">Mike Chen</text>
-    <text x="350" y="175" font-family="Arial, sans-serif" font-size="13" fill="#495057">Annual Membership</text>
-    <text x="530" y="175" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#28a745">$1,299.00</text>
-    <text x="650" y="175" font-family="Arial, sans-serif" font-size="13" fill="#495057">Bank Transfer</text>
-    <rect x="785" y="160" width="80" height="22" rx="11" fill="#fff3cd"/>
-    <text x="800" y="176" font-family="Arial, sans-serif" font-size="11" fill="#856404">Pending</text>
-    
-    <!-- Row 4 -->
-    <line x1="0" y1="195" x2="890" y2="195" stroke="#dee2e6" stroke-width="1"/>
-    <text x="20" y="225" font-family="Arial, sans-serif" font-size="13" fill="#495057">Oct 23, 2025</text>
-    <text x="150" y="225" font-family="Arial, sans-serif" font-size="13" fill="#212529">Emma Davis</text>
-    <text x="350" y="225" font-family="Arial, sans-serif" font-size="13" fill="#495057">Monthly Membership</text>
-    <text x="530" y="225" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#28a745">$89.00</text>
-    <text x="650" y="225" font-family="Arial, sans-serif" font-size="13" fill="#495057">Credit Card</text>
-    <rect x="785" y="210" width="80" height="22" rx="11" fill="#d1e7dd"/>
-    <text x="800" y="226" font-family="Arial, sans-serif" font-size="11" fill="#0f5132">Completed</text>
-    
-    <!-- Row 5 -->
-    <line x1="0" y1="245" x2="890" y2="245" stroke="#dee2e6" stroke-width="1"/>
-    <text x="20" y="270" font-family="Arial, sans-serif" font-size="13" fill="#495057">Oct 22, 2025</text>
-    <text x="150" y="270" font-family="Arial, sans-serif" font-size="13" fill="#212529">Robert Johnson</text>
-    <text x="350" y="270" font-family="Arial, sans-serif" font-size="13" fill="#495057">Class Package</text>
-    <text x="530" y="270" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#dc3545">$150.00</text>
-    <text x="650" y="270" font-family="Arial, sans-serif" font-size="13" fill="#495057">-</text>
-    <rect x="785" y="255" width="80" height="22" rx="11" fill="#f8d7da"/>
-    <text x="802" y="271" font-family="Arial, sans-serif" font-size="11" fill="#721c24">Overdue</text>
-  </g>
-  
-  <!-- Quick Actions Panel -->
-  <g transform="translate(280, 645)">
-    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#495057">Quick Actions:</text>
-    <rect x="120" width="140" height="35" rx="5" fill="#0d6efd"/>
-    <text x="140" y="23" font-family="Arial, sans-serif" font-size="13" fill="white">Process Payment</text>
-    
-    <rect x="275" width="140" height="35" rx="5" fill="#198754"/>
-    <text x="295" y="23" font-family="Arial, sans-serif" font-size="13" fill="white">Send Invoice</text>
-    
-    <rect x="430" width="140" height="35" rx="5" fill="#ffc107"/>
-    <text x="445" y="23" font-family="Arial, sans-serif" font-size="13" fill="#212529">Send Reminder</text>
-  </g>
-  
-  <!-- Watermark -->
-  <text x="600" y="660" font-family="Arial, sans-serif" font-size="12" fill="#adb5bd" text-anchor="middle">Gym Management System - Payment & Billing</text>
 </svg>
