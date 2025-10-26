@@ -1,152 +1,301 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900"><svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
 
-  <defs>  <defs>
+  <defs>
 
-    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">  <defs>  <defs>
 
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />      <stop offset="0%" style="stop-color:#0d6efd;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
 
-      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />      <stop offset="100%" style="stop-color:#0b5ed7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
 
-    </linearGradient>    </linearGradient>
+    </linearGradient>
 
-    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">  </defs>
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />      <stop offset="0%" style="stop-color:#0d6efd;stop-opacity:1" />
 
-      <stop offset="0%" style="stop-color:#48bb78;stop-opacity:0.1" />  
+      <stop offset="0%" style="stop-color:#48bb78;stop-opacity:0.1" />
 
-      <stop offset="100%" style="stop-color:#48bb78;stop-opacity:0.05" />  <!-- Background -->
+      <stop offset="100%" style="stop-color:#48bb78;stop-opacity:0.05" />      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />      <stop offset="100%" style="stop-color:#0b5ed7;stop-opacity:1" />
 
-    </linearGradient>  <rect width="1200" height="675" fill="#f8f9fa"/>
+    </linearGradient>
 
-    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">  
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">    </linearGradient>    </linearGradient>
 
-      <stop offset="0%" style="stop-color:#f56565;stop-opacity:0.1" />  <!-- Browser Chrome -->
+      <stop offset="0%" style="stop-color:#f56565;stop-opacity:0.1" />
 
-      <stop offset="100%" style="stop-color:#f56565;stop-opacity:0.05" />  <rect width="1200" height="40" fill="#e9ecef"/>
+      <stop offset="100%" style="stop-color:#f56565;stop-opacity:0.05" />    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">  </defs>
 
-    </linearGradient>  <circle cx="20" cy="20" r="6" fill="#ff5f56"/>
+    </linearGradient>
 
-    <linearGradient id="cardGrad3" x1="0%" y1="0%" x2="100%" y2="100%">  <circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
+    <linearGradient id="cardGrad3" x1="0%" y1="0%" x2="100%" y2="100%">      <stop offset="0%" style="stop-color:#48bb78;stop-opacity:0.1" />  
 
-      <stop offset="0%" style="stop-color:#4299e1;stop-opacity:0.1" />  <circle cx="60" cy="20" r="6" fill="#27c93f"/>
+      <stop offset="0%" style="stop-color:#4299e1;stop-opacity:0.1" />
 
-      <stop offset="100%" style="stop-color:#4299e1;stop-opacity:0.05" />  
+      <stop offset="100%" style="stop-color:#4299e1;stop-opacity:0.05" />      <stop offset="100%" style="stop-color:#48bb78;stop-opacity:0.05" />  <!-- Background -->
 
-    </linearGradient>  <!-- Header -->
+    </linearGradient>
 
-    <linearGradient id="cardGrad4" x1="0%" y1="0%" x2="100%" y2="100%">  <rect y="40" width="1200" height="80" fill="url(#grad1)"/>
+    <linearGradient id="cardGrad4" x1="0%" y1="0%" x2="100%" y2="100%">    </linearGradient>  <rect width="1200" height="675" fill="#f8f9fa"/>
 
-      <stop offset="0%" style="stop-color:#ed8936;stop-opacity:0.1" />  <text x="60" y="95" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Dashboard Overview</text>
+      <stop offset="0%" style="stop-color:#ed8936;stop-opacity:0.1" />
 
-      <stop offset="100%" style="stop-color:#ed8936;stop-opacity:0.05" />  
+      <stop offset="100%" style="stop-color:#ed8936;stop-opacity:0.05" />    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">  
 
-    </linearGradient>  <!-- Sidebar -->
+    </linearGradient>
 
-    <filter id="shadow">  <rect y="120" width="250" height="555" fill="#212529"/>
+    <filter id="shadow">      <stop offset="0%" style="stop-color:#f56565;stop-opacity:0.1" />  <!-- Browser Chrome -->
 
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.1"/>  
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.1"/>
 
-    </filter>  <!-- Sidebar Menu Items -->
+    </filter>      <stop offset="100%" style="stop-color:#f56565;stop-opacity:0.05" />  <rect width="1200" height="40" fill="#e9ecef"/>
 
-  </defs>  <rect x="20" y="140" width="210" height="40" rx="5" fill="#0d6efd"/>
+  </defs>
 
-    <text x="40" y="167" font-family="Arial, sans-serif" font-size="14" fill="white">📊 Dashboard</text>
+      </linearGradient>  <circle cx="20" cy="20" r="6" fill="#ff5f56"/>
 
-  <!-- Background -->  
+  <rect width="1400" height="900" fill="#f7fafc"/>
 
-  <rect width="1400" height="900" fill="#f7fafc"/>  <rect x="20" y="190" width="210" height="40" rx="5" fill="#343a40"/>
+      <linearGradient id="cardGrad3" x1="0%" y1="0%" x2="100%" y2="100%">  <circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
 
-    <text x="40" y="217" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">👥 Members</text>
+  <rect width="1400" height="80" fill="url(#headerGrad)"/>
 
-  <!-- Header -->  
+  <circle cx="40" cy="40" r="22" fill="white" opacity="0.2"/>      <stop offset="0%" style="stop-color:#4299e1;stop-opacity:0.1" />  <circle cx="60" cy="20" r="6" fill="#27c93f"/>
 
-  <rect width="1400" height="80" fill="url(#headerGrad)"/>  <rect x="20" y="240" width="210" height="40" rx="5" fill="#343a40"/>
+  <text x="40" y="48" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">G</text>
 
-  <circle cx="40" cy="40" r="22" fill="white" opacity="0.2"/>  <text x="40" y="267" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">💪 Trainers</text>
+  <text x="75" y="52" font-family="Arial, sans-serif" font-size="26" fill="white" font-weight="bold">GymMate Dashboard</text>      <stop offset="100%" style="stop-color:#4299e1;stop-opacity:0.05" />  
 
-  <text x="40" y="48" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">G</text>  
+  <text x="1320" y="52" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="end">Welcome, Admin</text>
 
-  <text x="75" y="52" font-family="Arial, sans-serif" font-size="26" fill="white" font-weight="bold">GymMate Dashboard</text>  <rect x="20" y="290" width="210" height="40" rx="5" fill="#343a40"/>
+      </linearGradient>  <!-- Header -->
 
-  <text x="1320" y="52" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="end">Welcome, Admin</text>  <text x="40" y="317" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">📅 Classes</text>
+  <g transform="translate(40, 120)">
+
+    <rect width="310" height="160" rx="12" fill="url(#cardGrad1)" filter="url(#shadow)"/>    <linearGradient id="cardGrad4" x1="0%" y1="0%" x2="100%" y2="100%">  <rect y="40" width="1200" height="80" fill="url(#grad1)"/>
+
+    <rect width="310" height="160" rx="12" fill="none" stroke="#48bb78" stroke-width="1" opacity="0.3"/>
+
+    <circle cx="50" cy="50" r="32" fill="#48bb78" opacity="0.15"/>      <stop offset="0%" style="stop-color:#ed8936;stop-opacity:0.1" />  <text x="60" y="95" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Dashboard Overview</text>
+
+    <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" fill="#48bb78" text-anchor="middle" font-weight="bold">👥</text>
+
+    <text x="30" y="110" font-family="Arial, sans-serif" font-size="15" fill="#718096" font-weight="500">Active Members</text>      <stop offset="100%" style="stop-color:#ed8936;stop-opacity:0.05" />  
+
+    <text x="30" y="145" font-family="Arial, sans-serif" font-size="40" fill="#2d3748" font-weight="bold">1,247</text>
+
+    <text x="280" y="145" font-family="Arial, sans-serif" font-size="14" fill="#48bb78" text-anchor="end">+12.5%</text>    </linearGradient>  <!-- Sidebar -->
+
+  </g>
+
+      <filter id="shadow">  <rect y="120" width="250" height="555" fill="#212529"/>
+
+  <g transform="translate(380, 120)">
+
+    <rect width="310" height="160" rx="12" fill="url(#cardGrad2)" filter="url(#shadow)"/>      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.1"/>  
+
+    <rect width="310" height="160" rx="12" fill="none" stroke="#f56565" stroke-width="1" opacity="0.3"/>
+
+    <circle cx="50" cy="50" r="32" fill="#f56565" opacity="0.15"/>    </filter>  <!-- Sidebar Menu Items -->
+
+    <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" fill="#f56565" text-anchor="middle" font-weight="bold">💰</text>
+
+    <text x="30" y="110" font-family="Arial, sans-serif" font-size="15" fill="#718096" font-weight="500">Monthly Revenue</text>  </defs>  <rect x="20" y="140" width="210" height="40" rx="5" fill="#0d6efd"/>
+
+    <text x="30" y="145" font-family="Arial, sans-serif" font-size="40" fill="#2d3748" font-weight="bold">$45.2K</text>
+
+    <text x="280" y="145" font-family="Arial, sans-serif" font-size="14" fill="#f56565" text-anchor="end">+8.3%</text>    <text x="40" y="167" font-family="Arial, sans-serif" font-size="14" fill="white">📊 Dashboard</text>
+
+  </g>
+
+    <!-- Background -->  
+
+  <g transform="translate(720, 120)">
+
+    <rect width="310" height="160" rx="12" fill="url(#cardGrad3)" filter="url(#shadow)"/>  <rect width="1400" height="900" fill="#f7fafc"/>  <rect x="20" y="190" width="210" height="40" rx="5" fill="#343a40"/>
+
+    <rect width="310" height="160" rx="12" fill="none" stroke="#4299e1" stroke-width="1" opacity="0.3"/>
+
+    <circle cx="50" cy="50" r="32" fill="#4299e1" opacity="0.15"/>    <text x="40" y="217" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">👥 Members</text>
+
+    <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" fill="#4299e1" text-anchor="middle" font-weight="bold">📅</text>
+
+    <text x="30" y="110" font-family="Arial, sans-serif" font-size="15" fill="#718096" font-weight="500">Today's Classes</text>  <!-- Header -->  
+
+    <text x="30" y="145" font-family="Arial, sans-serif" font-size="40" fill="#2d3748" font-weight="bold">12</text>
+
+    <text x="280" y="145" font-family="Arial, sans-serif" font-size="14" fill="#4299e1" text-anchor="end">4 ongoing</text>  <rect width="1400" height="80" fill="url(#headerGrad)"/>  <rect x="20" y="240" width="210" height="40" rx="5" fill="#343a40"/>
+
+  </g>
+
+    <circle cx="40" cy="40" r="22" fill="white" opacity="0.2"/>  <text x="40" y="267" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">💪 Trainers</text>
+
+  <g transform="translate(1060, 120)">
+
+    <rect width="310" height="160" rx="12" fill="url(#cardGrad4)" filter="url(#shadow)"/>  <text x="40" y="48" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">G</text>  
+
+    <rect width="310" height="160" rx="12" fill="none" stroke="#ed8936" stroke-width="1" opacity="0.3"/>
+
+    <circle cx="50" cy="50" r="32" fill="#ed8936" opacity="0.15"/>  <text x="75" y="52" font-family="Arial, sans-serif" font-size="26" fill="white" font-weight="bold">GymMate Dashboard</text>  <rect x="20" y="290" width="210" height="40" rx="5" fill="#343a40"/>
+
+    <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" fill="#ed8936" text-anchor="middle" font-weight="bold">🏋️</text>
+
+    <text x="30" y="110" font-family="Arial, sans-serif" font-size="15" fill="#718096" font-weight="500">Check-ins Today</text>  <text x="1320" y="52" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="end">Welcome, Admin</text>  <text x="40" y="317" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">📅 Classes</text>
+
+    <text x="30" y="145" font-family="Arial, sans-serif" font-size="40" fill="#2d3748" font-weight="bold">384</text>
+
+    <text x="280" y="145" font-family="Arial, sans-serif" font-size="14" fill="#ed8936" text-anchor="end">Real-time</text>    
+
+  </g>
+
+    <!-- Stats Cards Row -->  <rect x="20" y="340" width="210" height="40" rx="5" fill="#343a40"/>
+
+  <g transform="translate(40, 320)">
+
+    <rect width="880" height="540" rx="12" fill="white" filter="url(#shadow)"/>  <g transform="translate(40, 120)">  <text x="40" y="367" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">💰 Payments</text>
+
+    <text x="35" y="45" font-family="Arial, sans-serif" font-size="22" fill="#2d3748" font-weight="bold">Revenue Trend</text>
+
+    <text x="35" y="75" font-family="Arial, sans-serif" font-size="14" fill="#718096">Last 7 months performance</text>    <rect width="310" height="160" rx="12" fill="url(#cardGrad1)" filter="url(#shadow)"/>  
 
     
 
-  <!-- Stats Cards Row -->  <rect x="20" y="340" width="210" height="40" rx="5" fill="#343a40"/>
+    <line x1="80" y1="120" x2="820" y2="120" stroke="#e2e8f0" stroke-width="1"/>    <rect width="310" height="160" rx="12" fill="none" stroke="#48bb78" stroke-width="1" opacity="0.3"/>  <!-- Main Content Area -->
 
-  <g transform="translate(40, 120)">  <text x="40" y="367" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd">💰 Payments</text>
+    <line x1="80" y1="210" x2="820" y2="210" stroke="#e2e8f0" stroke-width="1"/>
 
-    <rect width="310" height="160" rx="12" fill="url(#cardGrad1)" filter="url(#shadow)"/>  
+    <line x1="80" y1="300" x2="820" y2="300" stroke="#e2e8f0" stroke-width="1"/>    <circle cx="50" cy="50" r="32" fill="#48bb78" opacity="0.15"/>  <!-- Stats Cards -->
 
-    <rect width="310" height="160" rx="12" fill="none" stroke="#48bb78" stroke-width="1" opacity="0.3"/>  <!-- Main Content Area -->
+    <line x1="80" y1="390" x2="820" y2="390" stroke="#e2e8f0" stroke-width="1"/>
 
-    <circle cx="50" cy="50" r="32" fill="#48bb78" opacity="0.15"/>  <!-- Stats Cards -->
-
-    <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" fill="#48bb78" text-anchor="middle" font-weight="bold">👥</text>  <g transform="translate(280, 150)">
-
-    <text x="30" y="110" font-family="Arial, sans-serif" font-size="15" fill="#718096" font-weight="500">Active Members</text>    <!-- Total Members Card -->
-
-    <text x="30" y="145" font-family="Arial, sans-serif" font-size="40" fill="#2d3748" font-weight="bold">1,247</text>    <rect width="200" height="120" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
-
-    <text x="280" y="145" font-family="Arial, sans-serif" font-size="14" fill="#48bb78" text-anchor="end">+12.5%</text>    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Total Members</text>
-
-  </g>    <text x="20" y="70" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0d6efd">1,234</text>
-
-      <text x="20" y="100" font-family="Arial, sans-serif" font-size="12" fill="#28a745">↑ 12% this month</text>
-
-  <g transform="translate(380, 120)">  </g>
-
-    <rect width="310" height="160" rx="12" fill="url(#cardGrad2)" filter="url(#shadow)"/>  
-
-    <rect width="310" height="160" rx="12" fill="none" stroke="#f56565" stroke-width="1" opacity="0.3"/>  <g transform="translate(510, 150)">
-
-    <circle cx="50" cy="50" r="32" fill="#f56565" opacity="0.15"/>    <!-- Active Classes Card -->
-
-    <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" fill="#f56565" text-anchor="middle" font-weight="bold">💰</text>    <rect width="200" height="120" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
-
-    <text x="30" y="110" font-family="Arial, sans-serif" font-size="15" fill="#718096" font-weight="500">Monthly Revenue</text>    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Active Classes</text>
-
-    <text x="30" y="145" font-family="Arial, sans-serif" font-size="40" fill="#2d3748" font-weight="bold">$45.2K</text>    <text x="20" y="70" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#198754">48</text>
-
-    <text x="280" y="145" font-family="Arial, sans-serif" font-size="14" fill="#f56565" text-anchor="end">+8.3%</text>    <text x="20" y="100" font-family="Arial, sans-serif" font-size="12" fill="#28a745">↑ 5 new classes</text>
-
-  </g>  </g>
+    <line x1="80" y1="480" x2="820" y2="480" stroke="#e2e8f0" stroke-width="1"/>    <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" fill="#48bb78" text-anchor="middle" font-weight="bold">👥</text>  <g transform="translate(280, 150)">
 
     
 
-  <g transform="translate(720, 120)">  <g transform="translate(740, 150)">
+    <polygon points="80,480 180,420 280,440 380,380 480,400 580,340 680,360 780,320 820,480"     <text x="30" y="110" font-family="Arial, sans-serif" font-size="15" fill="#718096" font-weight="500">Active Members</text>    <!-- Total Members Card -->
 
-    <rect width="310" height="160" rx="12" fill="url(#cardGrad3)" filter="url(#shadow)"/>    <!-- Revenue Card -->
+             fill="url(#headerGrad)" opacity="0.1"/>
 
-    <rect width="310" height="160" rx="12" fill="none" stroke="#4299e1" stroke-width="1" opacity="0.3"/>    <rect width="200" height="120" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
+        <text x="30" y="145" font-family="Arial, sans-serif" font-size="40" fill="#2d3748" font-weight="bold">1,247</text>    <rect width="200" height="120" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
 
-    <circle cx="50" cy="50" r="32" fill="#4299e1" opacity="0.15"/>    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Monthly Revenue</text>
+    <polyline points="80,480 180,420 280,440 380,380 480,400 580,340 680,360 780,320" 
 
-    <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" fill="#4299e1" text-anchor="middle" font-weight="bold">📅</text>    <text x="20" y="70" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#ffc107">$45K</text>
+              fill="none" stroke="#667eea" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>    <text x="280" y="145" font-family="Arial, sans-serif" font-size="14" fill="#48bb78" text-anchor="end">+12.5%</text>    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Total Members</text>
 
-    <text x="30" y="110" font-family="Arial, sans-serif" font-size="15" fill="#718096" font-weight="500">Today's Classes</text>    <text x="20" y="100" font-family="Arial, sans-serif" font-size="12" fill="#28a745">↑ 18% increase</text>
+    
 
-    <text x="30" y="145" font-family="Arial, sans-serif" font-size="40" fill="#2d3748" font-weight="bold">12</text>  </g>
+    <circle cx="80" cy="480" r="6" fill="#667eea" stroke="white" stroke-width="2"/>  </g>    <text x="20" y="70" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0d6efd">1,234</text>
 
-    <text x="280" y="145" font-family="Arial, sans-serif" font-size="14" fill="#4299e1" text-anchor="end">4 ongoing</text>  
+    <circle cx="180" cy="420" r="6" fill="#667eea" stroke="white" stroke-width="2"/>
 
-  </g>  <g transform="translate(970, 150)">
+    <circle cx="280" cy="440" r="6" fill="#667eea" stroke="white" stroke-width="2"/>      <text x="20" y="100" font-family="Arial, sans-serif" font-size="12" fill="#28a745">↑ 12% this month</text>
 
-      <!-- Attendance Card -->
+    <circle cx="380" cy="380" r="6" fill="#667eea" stroke="white" stroke-width="2"/>
 
-  <g transform="translate(1060, 120)">    <rect width="200" height="120" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
+    <circle cx="480" cy="400" r="6" fill="#667eea" stroke="white" stroke-width="2"/>  <g transform="translate(380, 120)">  </g>
 
-    <rect width="310" height="160" rx="12" fill="url(#cardGrad4)" filter="url(#shadow)"/>    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Today's Attendance</text>
+    <circle cx="580" cy="340" r="6" fill="#667eea" stroke="white" stroke-width="2"/>
 
-    <rect width="310" height="160" rx="12" fill="none" stroke="#ed8936" stroke-width="1" opacity="0.3"/>    <text x="20" y="70" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#dc3545">187</text>
+    <circle cx="680" cy="360" r="6" fill="#667eea" stroke="white" stroke-width="2"/>    <rect width="310" height="160" rx="12" fill="url(#cardGrad2)" filter="url(#shadow)"/>  
 
-    <circle cx="50" cy="50" r="32" fill="#ed8936" opacity="0.15"/>    <text x="20" y="100" font-family="Arial, sans-serif" font-size="12" fill="#28a745">↑ 95% capacity</text>
+    <circle cx="780" cy="320" r="6" fill="#667eea" stroke="white" stroke-width="2"/>
 
-    <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" fill="#ed8936" text-anchor="middle" font-weight="bold">🏋️</text>  </g>
+        <rect width="310" height="160" rx="12" fill="none" stroke="#f56565" stroke-width="1" opacity="0.3"/>  <g transform="translate(510, 150)">
 
-    <text x="30" y="110" font-family="Arial, sans-serif" font-size="15" fill="#718096" font-weight="500">Check-ins Today</text>  
+    <text x="80" y="510" font-family="Arial, sans-serif" font-size="13" fill="#718096" text-anchor="middle">Jan</text>
 
-    <text x="30" y="145" font-family="Arial, sans-serif" font-size="40" fill="#2d3748" font-weight="bold">384</text>  <!-- Chart Area -->
+    <text x="180" y="510" font-family="Arial, sans-serif" font-size="13" fill="#718096" text-anchor="middle">Feb</text>    <circle cx="50" cy="50" r="32" fill="#f56565" opacity="0.15"/>    <!-- Active Classes Card -->
+
+    <text x="280" y="510" font-family="Arial, sans-serif" font-size="13" fill="#718096" text-anchor="middle">Mar</text>
+
+    <text x="380" y="510" font-family="Arial, sans-serif" font-size="13" fill="#718096" text-anchor="middle">Apr</text>    <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" fill="#f56565" text-anchor="middle" font-weight="bold">💰</text>    <rect width="200" height="120" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+    <text x="480" y="510" font-family="Arial, sans-serif" font-size="13" fill="#718096" text-anchor="middle">May</text>
+
+    <text x="580" y="510" font-family="Arial, sans-serif" font-size="13" fill="#718096" text-anchor="middle">Jun</text>    <text x="30" y="110" font-family="Arial, sans-serif" font-size="15" fill="#718096" font-weight="500">Monthly Revenue</text>    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Active Classes</text>
+
+    <text x="680" y="510" font-family="Arial, sans-serif" font-size="13" fill="#718096" text-anchor="middle">Jul</text>
+
+    <text x="780" y="510" font-family="Arial, sans-serif" font-size="13" fill="#718096" text-anchor="middle">Aug</text>    <text x="30" y="145" font-family="Arial, sans-serif" font-size="40" fill="#2d3748" font-weight="bold">$45.2K</text>    <text x="20" y="70" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#198754">48</text>
+
+  </g>
+
+      <text x="280" y="145" font-family="Arial, sans-serif" font-size="14" fill="#f56565" text-anchor="end">+8.3%</text>    <text x="20" y="100" font-family="Arial, sans-serif" font-size="12" fill="#28a745">↑ 5 new classes</text>
+
+  <g transform="translate(950, 320)">
+
+    <rect width="420" height="540" rx="12" fill="white" filter="url(#shadow)"/>  </g>  </g>
+
+    <text x="35" y="45" font-family="Arial, sans-serif" font-size="22" fill="#2d3748" font-weight="bold">Recent Activity</text>
+
+    <text x="35" y="75" font-family="Arial, sans-serif" font-size="14" fill="#718096">Live updates from your gym</text>    
+
+    
+
+    <g transform="translate(35, 110)">  <g transform="translate(720, 120)">  <g transform="translate(740, 150)">
+
+      <circle cx="20" cy="15" r="12" fill="#48bb78"/>
+
+      <text x="20" y="21" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">✓</text>    <rect width="310" height="160" rx="12" fill="url(#cardGrad3)" filter="url(#shadow)"/>    <!-- Revenue Card -->
+
+      <text x="50" y="18" font-family="Arial, sans-serif" font-size="15" fill="#2d3748" font-weight="500">New member registered</text>
+
+      <text x="50" y="38" font-family="Arial, sans-serif" font-size="13" fill="#a0aec0">Sarah Johnson joined Premium plan</text>    <rect width="310" height="160" rx="12" fill="none" stroke="#4299e1" stroke-width="1" opacity="0.3"/>    <rect width="200" height="120" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+      <text x="50" y="58" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e0">2 minutes ago</text>
+
+    </g>    <circle cx="50" cy="50" r="32" fill="#4299e1" opacity="0.15"/>    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Monthly Revenue</text>
+
+    
+
+    <g transform="translate(35, 210)">    <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" fill="#4299e1" text-anchor="middle" font-weight="bold">📅</text>    <text x="20" y="70" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#ffc107">$45K</text>
+
+      <circle cx="20" cy="15" r="12" fill="#4299e1"/>
+
+      <text x="20" y="21" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">📅</text>    <text x="30" y="110" font-family="Arial, sans-serif" font-size="15" fill="#718096" font-weight="500">Today's Classes</text>    <text x="20" y="100" font-family="Arial, sans-serif" font-size="12" fill="#28a745">↑ 18% increase</text>
+
+      <text x="50" y="18" font-family="Arial, sans-serif" font-size="15" fill="#2d3748" font-weight="500">Class completed</text>
+
+      <text x="50" y="38" font-family="Arial, sans-serif" font-size="13" fill="#a0aec0">Yoga Flow - 25 attendees</text>    <text x="30" y="145" font-family="Arial, sans-serif" font-size="40" fill="#2d3748" font-weight="bold">12</text>  </g>
+
+      <text x="50" y="58" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e0">15 minutes ago</text>
+
+    </g>    <text x="280" y="145" font-family="Arial, sans-serif" font-size="14" fill="#4299e1" text-anchor="end">4 ongoing</text>  
+
+    
+
+    <g transform="translate(35, 310)">  </g>  <g transform="translate(970, 150)">
+
+      <circle cx="20" cy="15" r="12" fill="#ed8936"/>
+
+      <text x="20" y="21" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">💳</text>      <!-- Attendance Card -->
+
+      <text x="50" y="18" font-family="Arial, sans-serif" font-size="15" fill="#2d3748" font-weight="500">Payment received</text>
+
+      <text x="50" y="38" font-family="Arial, sans-serif" font-size="13" fill="#a0aec0">Monthly subscription - $89.99</text>  <g transform="translate(1060, 120)">    <rect width="200" height="120" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
+
+      <text x="50" y="58" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e0">1 hour ago</text>
+
+    </g>    <rect width="310" height="160" rx="12" fill="url(#cardGrad4)" filter="url(#shadow)"/>    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Today's Attendance</text>
+
+    
+
+    <g transform="translate(35, 410)">    <rect width="310" height="160" rx="12" fill="none" stroke="#ed8936" stroke-width="1" opacity="0.3"/>    <text x="20" y="70" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#dc3545">187</text>
+
+      <circle cx="20" cy="15" r="12" fill="#9f7aea"/>
+
+      <text x="20" y="21" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">🏋️</text>    <circle cx="50" cy="50" r="32" fill="#ed8936" opacity="0.15"/>    <text x="20" y="100" font-family="Arial, sans-serif" font-size="12" fill="#28a745">↑ 95% capacity</text>
+
+      <text x="50" y="18" font-family="Arial, sans-serif" font-size="15" fill="#2d3748" font-weight="500">Peak hours alert</text>
+
+      <text x="50" y="38" font-family="Arial, sans-serif" font-size="13" fill="#a0aec0">High traffic detected - 142 active</text>    <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" fill="#ed8936" text-anchor="middle" font-weight="bold">🏋️</text>  </g>
+
+      <text x="50" y="58" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e0">2 hours ago</text>
+
+    </g>    <text x="30" y="110" font-family="Arial, sans-serif" font-size="15" fill="#718096" font-weight="500">Check-ins Today</text>  
+
+  </g>
+
+</svg>    <text x="30" y="145" font-family="Arial, sans-serif" font-size="40" fill="#2d3748" font-weight="bold">384</text>  <!-- Chart Area -->
+
 
     <text x="280" y="145" font-family="Arial, sans-serif" font-size="14" fill="#ed8936" text-anchor="end">Real-time</text>  <g transform="translate(280, 300)">
 
