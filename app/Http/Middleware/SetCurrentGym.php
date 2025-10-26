@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use App\Models\Gym;
 use App\Support\GymContext;
+use App\Models\Branch;
+use App\Support\BranchContext;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -90,8 +92,25 @@ class SetCurrentGym
             }
         }
 
-        // Set context for downstream usage
+        // Set gym context for downstream usage
         GymContext::set((int) $gymId);
+
+        // Ensure branch context for current gym
+        $branchId = (int) $request->session()->get('branch_id');
+        if (!$branchId) {
+            $branch = Branch::where('gym_id', $gymId)->first();
+            if (!$branch) {
+                $branch = Branch::create([
+                    'gym_id' => $gymId,
+                    'name'   => 'Main Branch',
+                    'code'   => null,
+                    'status' => 'active',
+                ]);
+            }
+            $branchId = $branch->id;
+            $request->session()->put('branch_id', $branchId);
+        }
+        BranchContext::set($branchId);
 
         return $next($request);
     }

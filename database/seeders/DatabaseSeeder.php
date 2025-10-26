@@ -23,5 +23,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RoleSeeder::class);
         $this->call(GymSeeder::class);
+        // Ensure each gym has at least one branch
+        $this->call(BranchBackfillSeeder::class);
     }
 }

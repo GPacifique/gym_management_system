@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Concerns\BelongsToGym;
 
 class Member extends Model
 {
-    use BelongsToGym;
+    use HasFactory, BelongsToGym;
 
     protected $fillable = [
         'gym_id', 'first_name', 'last_name', 'email', 'phone', 'photo_path', 'chip_id', 'dob', 'gender',

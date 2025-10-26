@@ -67,6 +67,31 @@
                 </div>
             @endif
             @endauth
+            
+            @auth
+            @php($currentGymId = session('gym_id'))
+            @if($currentGymId)
+            {{-- Branch switcher for current gym --}}
+            <div class="dropdown mt-2">
+                <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-diagram-3"></i>
+                    Branch: {{ optional(\App\Support\BranchContext::current())->name ?? 'Main Branch' }}
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    @foreach(\App\Models\Branch::where('gym_id', $currentGymId)->orderBy('name')->get() as $branch)
+                        <li>
+                            <a class="dropdown-item d-flex justify-content-between align-items-center" href="{{ route('branches.switch', $branch) }}">
+                                <span>{{ $branch->name }}</span>
+                                @if(session('branch_id') == $branch->id)
+                                    <i class="bi bi-check2 text-success"></i>
+                                @endif
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            @endauth
         </div>
     </div>
     

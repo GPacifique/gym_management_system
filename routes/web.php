@@ -67,6 +67,11 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+// Pending approval page (must be accessible when blocked)
+Route::middleware(['auth'])->get('/gym/pending', function () {
+    return view('gym.pending');
+})->name('gym.pending');
+
 // Super Admin only routes
 Route::middleware(['auth', 'super_admin'])->prefix('super-admin')->name('super-admin.')->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\SuperAdmin\DashboardController::class, 'index'])
@@ -90,7 +95,7 @@ Route::middleware(['auth', 'super_admin'])->prefix('super-admin')->name('super-a
 });
 
 // Admin only routes
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::middleware(['auth', 'role:admin', \App\Http\Middleware\EnsureGymApproved::class])->group(function () {
     Route::resource('trainers', TrainerController::class);
     Route::resource('gyms', \App\Http\Controllers\GymController::class)->only(['index','create','store']);
     // User management
@@ -111,7 +116,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 // Gym profile - accessible by admin and managers
-Route::middleware(['auth', 'role:admin,manager'])->group(function () {
+Route::middleware(['auth', 'role:admin,manager', \App\Http\Middleware\EnsureGymApproved::class])->group(function () {
     Route::get('/gyms/{gym}', [\App\Http\Controllers\GymController::class, 'show'])->name('gyms.show');
     Route::get('/gyms/{gym}/edit', [\App\Http\Controllers\GymController::class, 'edit'])->name('gyms.edit');
     Route::put('/gyms/{gym}', [\App\Http\Controllers\GymController::class, 'update'])->name('gyms.update');
@@ -126,7 +131,7 @@ Route::middleware(['auth', 'role:admin,manager'])->group(function () {
 });
 
 // Admin, Manager, and Receptionist routes (limited CRUD)
-Route::middleware(['auth', 'role:admin,manager,receptionist'])->group(function () {
+Route::middleware(['auth', 'role:admin,manager,receptionist', \App\Http\Middleware\EnsureGymApproved::class])->group(function () {
     // Receptionist can view and create payments; edit/delete are restricted below
     Route::resource('payments', PaymentController::class)->only(['index', 'show', 'create', 'store']);
 
@@ -160,6 +165,8 @@ Route::middleware('auth')->group(function () {
 
     // Switch current gym
     Route::get('/gyms/switch/{gym}', [\App\Http\Controllers\GymController::class, 'switch'])->name('gyms.switch');
+    // Switch current branch
+    Route::get('/branches/switch/{branch}', [\App\Http\Controllers\BranchController::class, 'switch'])->name('branches.switch');
     
     // Class Bookings
     Route::prefix('bookings')->name('bookings.')->group(function () {

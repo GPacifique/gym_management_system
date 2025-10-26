@@ -14,7 +14,7 @@ class PaymentFactory extends Factory
             'member_id'        => Member::inRandomOrder()->first()?->id,
             'subscription_id'  => Subscription::inRandomOrder()->first()?->id,
             'amount'           => $this->faker->randomFloat(2, 20, 300),
-            'method'           => $this->faker->randomElement(['cash', 'card', 'online']),
+            'method'           => $this->faker->randomElement(['cash', 'card', 'bank_transfer', 'mobile_payment', 'other']),
             'payment_date'     => $this->faker->dateTimeBetween('-3 months', 'now'),
             'transaction_id'   => strtoupper($this->faker->bothify('TXN###??')),
         ];

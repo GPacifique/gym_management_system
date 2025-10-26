@@ -56,6 +56,11 @@ class Gym extends Model
         return $this->hasMany(Member::class);
     }
 
+    public function branches()
+    {
+        return $this->hasMany(\App\Models\Branch::class);
+    }
+
     public function owner()
     {
         return $this->belongsTo(User::class, 'owner_user_id');
