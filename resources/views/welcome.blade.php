@@ -100,121 +100,221 @@
 
         .navbar {
             z-index: 1050 !important;
-            background-color: rgba(0, 0, 0, 0.8) !important;
+            background-color: rgba(255, 255, 255, 0.98) !important;
             backdrop-filter: blur(10px);
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .navbar.scrolled {
-            background-color: rgba(0, 0, 0, 0.95) !important;
+            background-color: rgba(255, 255, 255, 1) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                        url('https://source.unsplash.com/1600x900/?gym,fitness') center/cover no-repeat;
-            height: 100vh;
-            color: white;
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 1;
+        .navbar-dark {
+            background-color: rgba(255, 255, 255, 0.98) !important;
         }
 
-        .feature-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #0d6efd;
+        .navbar-brand {
+            color: #1a1a1a !important;
+            font-weight: 700;
+            font-size: 1.5rem;
         }
 
         .nav-link {
-            color: rgba(255, 255, 255, 0.9);
+            color: #4a5568 !important;
             transition: color 0.3s ease;
             font-weight: 500;
         }
 
         .nav-link:hover {
-            color: #0d6efd;
+            color: #667eea !important;
         }
 
-        .btn-primary {
-            padding: 0.8rem 2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding-top: 100px;
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: float-image 6s ease-in-out infinite;
+        }
+
+        @keyframes float-image {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .feature-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card {
             transition: all 0.3s ease;
-            background-color: #0d6efd !important;
-            border-color: #0d6efd !important;
-            color: white !important;
+            cursor: pointer;
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
-            background-color: #0b5ed7 !important;
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
         }
 
-        .btn-outline-light {
-            padding: 0.8rem 2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 2px solid #fff !important;
-            color: #fff !important;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline-light:hover {
-            background-color: #fff !important;
-            color: #000 !important;
-            transform: translateY(-2px);
-        }
-
-        .btn-success {
-            padding: 0.8rem 2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background-color: #198754 !important;
-            border-color: #198754 !important;
-            color: white !important;
-        }
-
-        .btn-success:hover {
-            background-color: #157347 !important;
-            transform: translateY(-2px);
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .stat-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.25);
         }
 
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 3rem;
+            font-weight: 800;
             margin-bottom: 0.5rem;
-            color: #0d6efd;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            border: none !important;
+            color: white !important;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-outline-light {
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid rgba(255, 255, 255, 0.8) !important;
+            color: #fff !important;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            background: transparent !important;
+        }
+
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 1) !important;
+            color: #667eea !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-success {
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%) !important;
+            border: none !important;
+            color: white !important;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4);
         }
 
         .testimonial-card {
@@ -232,21 +332,51 @@
             object-fit: cover;
             margin-bottom: 1rem;
         }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Additional responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-section {
+                padding-top: 80px;
+                min-height: auto;
+                padding-bottom: 60px;
+            }
+            
+            .stat-card {
+                padding: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
     </style>
 
     <body>
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="#">
                     <img src="{{ asset('images/logo.svg') }}" alt="GMS Logo" style="height: 40px; margin-right: 10px;">
-                    {{ config('app.name', 'GMS') }}
+                    <span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;">
+                        {{ config('app.name', 'GMS') }}
+                    </span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item">
                             <a class="nav-link" href="#screenshots">Screenshots</a>
                         </li>
@@ -260,19 +390,14 @@
                             <a class="nav-link" href="#testimonials">Testimonials</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('gym.register') }}" class="btn btn-success ms-2">
-                                <i class="bi bi-building"></i> Register Gym
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('login') }}" class="btn btn-outline-light ms-2">
+                            <a href="{{ route('login') }}" class="btn btn-outline-primary ms-2 px-4" style="border-radius: 50px; border-color: #667eea; color: #667eea;">
                                 <i class="bi bi-box-arrow-in-right"></i> Login
                             </a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a href="{{ route('register') }}" class="btn btn-primary ms-2">
-                                    <i class="bi bi-person-plus"></i> Register
+                                <a href="{{ route('register') }}" class="btn btn-primary ms-2 px-4">
+                                    <i class="bi bi-person-plus"></i> Get Started
                                 </a>
                             </li>
                         @endif
@@ -282,57 +407,86 @@
         </nav>
         <!-- Hero Section -->
         <section class="hero-section">
-            <div class="container">
+            <div class="container hero-content">
                 <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <h1 class="display-4 fw-bold mb-4">Multi-Location Fitness Management</h1>
-                        <p class="lead mb-4">Manage all your gym locations from one powerful platform. Track members, classes, and payments across multiple facilities with ease.</p>
-                        <div class="d-flex gap-3 flex-wrap">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <div class="mb-4">
+                            <span class="feature-badge">
+                                <i class="bi bi-stars"></i> #1 Gym Management Platform
+                            </span>
+                        </div>
+                        <h1 class="hero-title">
+                            Transform Your Fitness Business
+                        </h1>
+                        <p class="hero-subtitle">
+                            The complete solution for managing multiple gym locations. Track members, schedule classes, process payments, and grow your fitness empire - all from one powerful platform.
+                        </p>
+                        
+                        <div class="d-flex gap-3 flex-wrap mb-4">
                             <a href="{{ route('gym.register') }}" class="btn btn-success btn-lg">
-                                <i class="bi bi-building"></i> Register Your Gym
-                            </a>
-                            <a href="{{ route('register') }}" class="btn btn-primary btn-lg">
-                                <i class="bi bi-person-plus"></i> Join as Member
+                                <i class="bi bi-building"></i> Start Free Trial
                             </a>
                             <a href="{{ route('login') }}" class="btn btn-outline-light btn-lg">
-                                <i class="bi bi-box-arrow-in-right"></i> Staff Login
+                                <i class="bi bi-box-arrow-in-right"></i> Login
                             </a>
                         </div>
+
                         <div class="mt-4">
-                            <small class="text-light">
-                                <i class="bi bi-check-circle-fill text-success"></i> 30-day free trial • 
-                                <i class="bi bi-shield-check text-success"></i> No credit card required
-                            </small>
+                            <div class="d-flex flex-wrap gap-3">
+                                <span class="feature-badge">
+                                    <i class="bi bi-check-circle-fill"></i> 30-day free trial
+                                </span>
+                                <span class="feature-badge">
+                                    <i class="bi bi-shield-check"></i> No credit card required
+                                </span>
+                                <span class="feature-badge">
+                                    <i class="bi bi-graph-up"></i> Cancel anytime
+                                </span>
+                            </div>
                         </div>
                     </div>
+                    
                     <div class="col-lg-6">
-                        <div class="row mt-5">
-                            <div class="col-md-6 mb-4">
-                                <div class="stat-card">
-                                    <div class="stat-number">{{ App\Models\Gym::count() }}</div>
-                                    <div>Gym Locations</div>
+                        <div class="hero-image">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <div class="stat-card">
+                                        <i class="bi bi-building fs-2 mb-3"></i>
+                                        <div class="stat-number">{{ App\Models\Gym::count() }}</div>
+                                        <div class="stat-label">Gym Locations</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="stat-card">
-                                    <div class="stat-number">{{ App\Models\Member::count() }}+</div>
-                                    <div>Total Members</div>
+                                <div class="col-6">
+                                    <div class="stat-card">
+                                        <i class="bi bi-people fs-2 mb-3"></i>
+                                        <div class="stat-number">{{ App\Models\Member::count() }}+</div>
+                                        <div class="stat-label">Active Members</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="stat-card">
-                                    <div class="stat-number">{{ App\Models\Trainer::count() }}+</div>
-                                    <div>Expert Trainers</div>
+                                <div class="col-6">
+                                    <div class="stat-card">
+                                        <i class="bi bi-person-badge fs-2 mb-3"></i>
+                                        <div class="stat-number">{{ App\Models\Trainer::count() }}+</div>
+                                        <div class="stat-label">Expert Trainers</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="stat-card">
-                                    <div class="stat-number">{{ App\Models\GymClass::count() }}+</div>
-                                    <div>Classes Offered</div>
+                                <div class="col-6">
+                                    <div class="stat-card">
+                                        <i class="bi bi-calendar-event fs-2 mb-3"></i>
+                                        <div class="stat-number">{{ App\Models\GymClass::count() }}+</div>
+                                        <div class="stat-label">Classes Today</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Scroll indicator -->
+                <div class="text-center mt-5 position-absolute bottom-0 start-50 translate-middle-x mb-4" style="animation: bounce 2s infinite;">
+                    <a href="#screenshots" class="text-white text-decoration-none">
+                        <i class="bi bi-chevron-down fs-2"></i>
+                    </a>
                 </div>
             </div>
         </section>
