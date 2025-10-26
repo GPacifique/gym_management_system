@@ -14,7 +14,9 @@
 /.zed
 /auth.json
 /node_modules/
-/public/build/
+# Uncommenting the line below will prevent built assets from being committed
+# For cPanel deployments without Node.js, built assets should be committed
+# /public/build/
 /public/hot
 /public/storage
 /storage/*.key

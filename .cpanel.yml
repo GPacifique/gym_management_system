@@ -39,12 +39,13 @@ deployment:
       fi
 
     # Frontend build (optional, only if Node is available)
+    # Note: It's recommended to commit built assets (public/build/) instead
     - if command -v npm >/dev/null 2>&1; then \
         echo "Building frontend assets"; \
-        npm ci --no-audit --no-fund || npm install; \
-        npm run build || echo "Vite build failed (skipping)"; \
+        npm ci --no-audit --no-fund 2>/dev/null || npm install 2>/dev/null || echo "npm install skipped"; \
+        npm run build 2>/dev/null || echo "Asset build skipped - using committed build files"; \
       else \
-        echo "npm not found, skipping asset build"; \
+        echo "npm not found - using committed build files from public/build/"; \
       fi
 
     - echo "[cPanel] Deployment finished on $(date)"
