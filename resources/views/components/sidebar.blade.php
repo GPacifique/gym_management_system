@@ -14,15 +14,15 @@
                 @endauth
             </h5>
             @auth
-            @if(!Auth::user()->isSuperAdmin())
-            <div class="dropdown">
-                <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="bi bi-arrow-left-right"></i>
-                    Switch Gym
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                    @if(Auth::user()->isAdmin())
-                        @foreach(\App\Models\Gym::orderBy('name')->get() as $g)
+            @if(Auth::user()->isSuperAdmin())
+                {{-- Super Admin: Show all gyms --}}
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bi bi-arrow-left-right"></i>
+                        All Gyms
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        @foreach(\App\Models\Gym::where('approval_status', 'approved')->orderBy('name')->get() as $g)
                             <li>
                                 <a class="dropdown-item d-flex justify-content-between align-items-center" href="{{ route('gyms.switch', $g) }}">
                                     <span>{{ $g->name }}</span>
@@ -32,7 +32,18 @@
                                 </a>
                             </li>
                         @endforeach
-                    @else
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{ route('super-admin.gyms.index') }}"><i class="bi bi-gear me-2"></i>Manage All Gyms</a></li>
+                    </ul>
+                </div>
+            @elseif(Auth::user()->gyms()->count() > 0)
+                {{-- Regular users: Show only assigned gyms --}}
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bi bi-arrow-left-right"></i>
+                        Switch Gym
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark">
                         @php
                             $__gyms = Auth::user()->gyms()->orderBy('name')->get();
                         @endphp
@@ -48,13 +59,12 @@
                         @empty
                             <li class="px-3 py-2 text-muted small">No gyms assigned</li>
                         @endforelse
-                    @endif
-                    @if(Auth::user()->isAdmin())
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('gyms.index') }}"><i class="bi bi-gear me-2"></i>Manage Gyms</a></li>
-                    @endif
-                </ul>
-            </div>
+                        @if(Auth::user()->isAdmin())
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ route('gyms.index') }}"><i class="bi bi-gear me-2"></i>Manage My Gyms</a></li>
+                        @endif
+                    </ul>
+                </div>
             @endif
             @endauth
         </div>

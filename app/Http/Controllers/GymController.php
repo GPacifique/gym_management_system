@@ -11,7 +11,13 @@ class GymController extends Controller
 {
     public function index()
     {
-        $gyms = Gym::orderBy('name')->paginate(10);
+        // Super Admin can see all gyms, regular users only see their assigned gyms
+        if (auth()->user()->isSuperAdmin()) {
+            $gyms = Gym::orderBy('name')->paginate(10);
+        } else {
+            $gyms = auth()->user()->gyms()->orderBy('name')->paginate(10);
+        }
+        
         return view('gyms.index', compact('gyms'));
     }
 
@@ -44,14 +50,28 @@ class GymController extends Controller
 
     public function switch(Gym $gym)
     {
+        // Super Admin can switch to any approved gym
+        if (auth()->user()->isSuperAdmin()) {
+            if ($gym->approval_status !== 'approved') {
+                return redirect()->back()->with('error', 'Cannot switch to a gym that is not approved.');
+            }
+        } else {
+            // Regular users can only switch to their assigned gyms
+            if (!auth()->user()->gyms->contains($gym->id)) {
+                abort(403, 'You do not have access to this gym.');
+            }
+        }
+
         session(['gym_id' => $gym->id]);
         GymContext::set($gym->id);
+        
         if (auth()->user()) {
             // Don't overwrite explicit preferences unless empty
             if (!auth()->user()->default_gym_id) {
                 auth()->user()->update(['default_gym_id' => $gym->id]);
             }
         }
+        
         return redirect()->back()->with('success', 'Switched to gym: '.$gym->name);
     }
 
