@@ -17,6 +17,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
+// Lightweight health check (no middleware)
+Route::get('/healthz', function () {
+    return response()->json([
+        'ok' => true,
+        'php' => PHP_VERSION,
+        'laravel' => app()->version(),
+        'env' => app()->environment(),
+        'time' => now()->toDateTimeString(),
+    ]);
+});
+
 Route::get('/', function () {
     $trainers = \App\Models\Trainer::with('gym')
         ->take(6)
