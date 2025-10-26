@@ -1,5 +1,14 @@
 <x-app-layout>
     <div class="container mt-5">
+        @php($__gym = \App\Models\Gym::find(session('gym_id') ?? Auth::user()->default_gym_id))
+        <div class="row mb-3">
+            <div class="col-12">
+                <h3 class="fw-bold mb-0">
+                    <i class="bi bi-building me-2"></i>{{ $__gym?->name ?? 'Select Gym' }}
+                    <small class="text-muted ms-2">Dashboard</small>
+                </h3>
+            </div>
+        </div>
         <div class="card shadow-sm">
             <div class="card-body">
                 <h4 class="mb-2">Welcome, Trainer</h4>

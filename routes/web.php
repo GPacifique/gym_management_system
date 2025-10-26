@@ -18,7 +18,10 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 Route::get('/', function () {
-    return view('welcome');
+    $trainers = \App\Models\Trainer::with('gym')
+        ->take(6)
+        ->get();
+    return view('welcome', compact('trainers'));
 })->name('welcome');
 
 // Gym Registration Routes (Guest accessible)
@@ -63,6 +66,28 @@ Route::middleware('auth')->prefix('gym/onboarding')->name('gym.onboarding.')->gr
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+// Super Admin only routes
+Route::middleware(['auth', 'super_admin'])->prefix('super-admin')->name('super-admin.')->group(function () {
+    Route::get('/dashboard', [\App\Http\Controllers\SuperAdmin\DashboardController::class, 'index'])
+        ->name('dashboard');
+    Route::get('/gyms', [\App\Http\Controllers\SuperAdmin\GymAccountController::class, 'index'])
+        ->name('gyms.index');
+    Route::get('/gyms/{gym}', [\App\Http\Controllers\SuperAdmin\GymAccountController::class, 'show'])
+        ->name('gyms.show');
+    Route::patch('/gyms/{gym}/approve', [\App\Http\Controllers\SuperAdmin\GymAccountController::class, 'approve'])
+        ->name('gyms.approve');
+    Route::patch('/gyms/{gym}/reject', [\App\Http\Controllers\SuperAdmin\GymAccountController::class, 'reject'])
+        ->name('gyms.reject');
+    Route::patch('/gyms/{gym}/suspend', [\App\Http\Controllers\SuperAdmin\GymAccountController::class, 'suspend'])
+        ->name('gyms.suspend');
+    Route::patch('/gyms/{gym}/update-subscription', [\App\Http\Controllers\SuperAdmin\GymAccountController::class, 'updateSubscription'])
+        ->name('gyms.update-subscription');
+    Route::delete('/gyms/{gym}', [\App\Http\Controllers\SuperAdmin\GymAccountController::class, 'destroy'])
+        ->name('gyms.destroy');
+    Route::get('/gyms-export', [\App\Http\Controllers\SuperAdmin\GymAccountController::class, 'export'])
+        ->name('gyms.export');
+});
 
 // Admin only routes
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -135,6 +160,16 @@ Route::middleware('auth')->group(function () {
 
     // Switch current gym
     Route::get('/gyms/switch/{gym}', [\App\Http\Controllers\GymController::class, 'switch'])->name('gyms.switch');
+    
+    // Class Bookings
+    Route::prefix('bookings')->name('bookings.')->group(function () {
+        Route::get('/', [\App\Http\Controllers\ClassBookingController::class, 'index'])->name('index');
+        Route::get('/my-bookings', [\App\Http\Controllers\ClassBookingController::class, 'myBookings'])->name('my-bookings');
+        Route::get('/classes/{class}/book', [\App\Http\Controllers\ClassBookingController::class, 'create'])->name('create');
+        Route::post('/classes/{class}/book', [\App\Http\Controllers\ClassBookingController::class, 'store'])->name('store');
+        Route::get('/{booking}', [\App\Http\Controllers\ClassBookingController::class, 'show'])->name('show');
+        Route::post('/{booking}/cancel', [\App\Http\Controllers\ClassBookingController::class, 'cancel'])->name('cancel');
+    });
 });
 
 // AJAX route for refreshing dashboard data

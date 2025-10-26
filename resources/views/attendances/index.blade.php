@@ -63,85 +63,118 @@
         </div>
 
         <!-- Attendance Table -->
-        <div class="card">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Member</th>
-                                <th>Class</th>
-                                <th>Status</th>
-                                <th>Notes</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($attendances as $attendance)
-                                <tr>
-                                    <td>{{ $attendance->check_in_time->format('M d, Y') }}</td>
-                                    <td>{{ $attendance->check_in_time->format('h:i A') }}</td>
-                                    <td>
-                                        @php
-                                            $member = $attendance->member;
-                                            $memberName = $member ? trim(($member->first_name ?? '') . ' ' . ($member->last_name ?? '')) : '';
-                                        @endphp
-                                        @if($member)
+        <div class="card shadow-sm border-0" style="border-radius: 12px; overflow: hidden;">
+            <div class="card-body p-0">
+                <x-sophisticated-table :headers="['Date', 'Time', 'Member', 'Class', 'Status', 'Notes', 'Actions']">
+                    @forelse($attendances as $attendance)
+                        <tr>
+                            <td>
+                                <i class="bi bi-calendar3 text-primary me-1"></i>
+                                <span class="fw-semibold">{{ $attendance->check_in_time->format('M d, Y') }}</span>
+                            </td>
+                            <td>
+                                <span class="badge bg-light text-dark">
+                                    <i class="bi bi-clock me-1"></i>{{ $attendance->check_in_time->format('h:i A') }}
+                                </span>
+                            </td>
+                            <td>
+                                @php
+                                    $member = $attendance->member;
+                                    $memberName = $member ? trim(($member->first_name ?? '') . ' ' . ($member->last_name ?? '')) : '';
+                                    $initials = '';
+                                    if ($memberName !== '') {
+                                        $parts = preg_split('/\s+/', trim($memberName));
+                                        if (!empty($parts[0])) { $initials .= mb_strtoupper(mb_substr($parts[0], 0, 1)); }
+                                        if (!empty($parts[1])) { $initials .= mb_strtoupper(mb_substr($parts[1], 0, 1)); }
+                                    }
+                                @endphp
+                                @if($member)
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-circle me-2" style="width: 32px; height: 32px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-radius: 50%; display: flex; align-items-center; justify-content: center; color: white; font-weight: 600; font-size: 0.75rem;">
+                                            {{ $initials !== '' ? $initials : '?' }}
+                                        </div>
+                                        <div>
                                             @hasAnyRole('admin','manager')
-                                                <a href="{{ route('members.show', $member) }}" class="text-decoration-none">
+                                                <a href="{{ route('members.show', $member) }}" class="text-decoration-none text-dark fw-semibold">
                                                     {{ $memberName ?: ($member->email ?? 'Unknown') }}
                                                 </a>
                                             @else
-                                                {{ $memberName ?: ($member->email ?? 'Unknown') }}
+                                                <span class="fw-semibold">{{ $memberName ?: ($member->email ?? 'Unknown') }}</span>
                                             @endhasAnyRole
-                                        @else
-                                            —
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if($attendance->class_id)
-                                            {{ $attendance->class->class_name }}
-                                        @else
-                                            Regular Visit
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if($attendance->check_out_time)
-                                            <span class="badge bg-success">Completed</span>
-                                        @else
-                                            <span class="badge bg-warning">In Progress</span>
-                                        @endif
-                                    </td>
-                                    <td>{{ $attendance->notes }}</td>
-                                    <td>
-                                        @if(!$attendance->check_out_time)
-                                            <form action="{{ route('attendances.checkout', $attendance) }}" method="POST" class="d-inline">
-                                                @csrf
-                                                @method('PATCH')
-                                                <button type="submit" class="btn btn-sm btn-success" onclick="return confirm('Record checkout for this member?')">
-                                                    <i class="bi bi-box-arrow-right"></i> Checkout
-                                                </button>
-                                            </form>
-                                        @endif
-                                        <button type="button" class="btn btn-sm btn-info" 
-                                                data-bs-toggle="modal" 
-                                                data-bs-target="#viewAttendanceModal{{ $attendance->id }}">
-                                            <i class="bi bi-eye"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="7" class="text-center">No attendance records found</td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
+                                        </div>
+                                    </div>
+                                @else
+                                    <span class="text-muted">—</span>
+                                @endif
+                            </td>
+                            <td>
+                                @if($attendance->class_id)
+                                    <span class="badge bg-info bg-gradient">
+                                        <i class="bi bi-bookmark me-1"></i>{{ $attendance->class->class_name }}
+                                    </span>
+                                @else
+                                    <span class="badge bg-secondary bg-gradient">
+                                        <i class="bi bi-door-open me-1"></i>Regular Visit
+                                    </span>
+                                @endif
+                            </td>
+                            <td>
+                                @if($attendance->check_out_time)
+                                    <span class="badge bg-success bg-gradient" style="font-size: 0.85rem;">
+                                        <i class="bi bi-check-circle me-1"></i>Completed
+                                    </span>
+                                    <br>
+                                    <small class="text-muted">Out: {{ $attendance->check_out_time->format('h:i A') }}</small>
+                                @else
+                                    <span class="badge bg-warning bg-gradient" style="font-size: 0.85rem;">
+                                        <i class="bi bi-hourglass-split me-1"></i>In Progress
+                                    </span>
+                                @endif
+                            </td>
+                            <td>
+                                @if($attendance->notes)
+                                    <small class="text-muted">{{ Str::limit($attendance->notes, 30) }}</small>
+                                @else
+                                    <span class="text-muted">—</span>
+                                @endif
+                            </td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group">
+                                    @if(!$attendance->check_out_time)
+                                        <form action="{{ route('attendances.checkout', $attendance) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" class="btn btn-success" onclick="return confirm('Record checkout for this member?')" title="Checkout">
+                                                <i class="bi bi-box-arrow-right"></i>
+                                            </button>
+                                        </form>
+                                    @endif
+                                    <button type="button" class="btn btn-outline-info" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#viewAttendanceModal{{ $attendance->id }}"
+                                            title="View Details">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="7" class="text-center py-5">
+                                <div class="text-muted">
+                                    <i class="bi bi-clipboard-check" style="font-size: 4rem; opacity: 0.3;"></i>
+                                    <p class="mt-3 mb-2 fs-5">No attendance records found</p>
+                                    <p class="text-muted small mb-3">Start recording attendance for your members</p>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#recordAttendanceModal">
+                                        <i class="bi bi-plus-circle me-1"></i> Record First Attendance
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforelse
+                </x-sophisticated-table>
                 
-                <div class="d-flex justify-content-end mt-3">
+                <div class="d-flex justify-content-end mt-3 px-3 pb-3">
                     {{ $attendances->links() }}
                 </div>
             </div>

@@ -47,7 +47,7 @@
                     <div class="card-body d-flex justify-content-between align-items-center">
                         <div>
                             <div class="text-muted">Today's Revenue</div>
-                            <div class="h4 mb-0">$ {{ number_format($todayRevenue ?? 0, 2) }}</div>
+                            <div class="h4 mb-0">RWF {{ number_format($todayRevenue ?? 0, 2) }}</div>
                         </div>
                         <div class="text-success display-6"><i class="bi bi-cash-stack"></i></div>
                     </div>
@@ -207,7 +207,7 @@
         });
         if (rctx) new Chart(rctx, {
             type: 'bar',
-            data: { labels: @json($chartLabels ?? []), datasets: [{ label: 'Revenue ($)', data: @json($revenueChartData ?? []), backgroundColor: '#dc3545' }] }
+            data: { labels: @json($chartLabels ?? []), datasets: [{ label: 'Revenue (RWF)', data: @json($revenueChartData ?? []), backgroundColor: '#dc3545' }] }
         });
 
         // Refresh support (per-role)

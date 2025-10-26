@@ -76,7 +76,32 @@ class User extends Authenticatable
     /**
      * Canonical list of application roles.
      */
-    public const ROLES = ['admin', 'manager', 'receptionist', 'trainer', 'member'];
+    public const ROLES = ['super_admin', 'admin', 'manager', 'receptionist', 'trainer', 'member'];
+    
+    /**
+     * Check if user is super admin.
+     */
+    public function isSuperAdmin(): bool
+    {
+        return $this->role === 'super_admin';
+    }
+
+    /**
+     * Check if user can access all gyms (bypass gym restrictions).
+     * Super admins have platform-wide access.
+     */
+    public function canAccessAllGyms(): bool
+    {
+        return $this->isSuperAdmin();
+    }
+
+    /**
+     * Check if user has platform-wide management privileges.
+     */
+    public function isPlatformManager(): bool
+    {
+        return $this->isSuperAdmin();
+    }
 
     /**
      * The attributes that are mass assignable.

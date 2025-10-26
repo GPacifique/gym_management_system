@@ -38,9 +38,20 @@
 
                     <!-- Price -->
                     <div class="col-md-4">
-                        <label for="price" class="form-label">Price (RWF)</label>
-                        <input type="number" step="0.01" name="price" id="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}" required>
+                        <label for="price" class="form-label">Price</label>
+                        <div class="input-group">
+                            <input type="number" step="0.01" name="price" id="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}" required>
+                            <select class="form-select @error('currency') is-invalid @enderror" id="currency" name="currency" style="max-width: 120px;" required>
+                                <option value="RWF" {{ old('currency', 'RWF') == 'RWF' ? 'selected' : '' }}>RWF</option>
+                                <option value="USD" {{ old('currency') == 'USD' ? 'selected' : '' }}>USD</option>
+                                <option value="EUR" {{ old('currency') == 'EUR' ? 'selected' : '' }}>EUR</option>
+                                <option value="GBP" {{ old('currency') == 'GBP' ? 'selected' : '' }}>GBP</option>
+                            </select>
+                        </div>
                         @error('price')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        @error('currency')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>

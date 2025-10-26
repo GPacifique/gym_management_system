@@ -1,5 +1,15 @@
 <x-app-layout>
     <div class="container-fluid mt-4">
+        @php($__gym = \App\Models\Gym::find(session('gym_id') ?? Auth::user()->default_gym_id))
+        <div class="row mb-3">
+            <div class="col-12">
+                <h3 class="fw-bold mb-0">
+                    <i class="bi bi-building me-2"></i>{{ $__gym?->name ?? 'Select Gym' }}
+                    <small class="text-muted ms-2">Dashboard</small>
+                </h3>
+            </div>
+        </div>
+
         <x-dashboard.header 
             :last-update="$lastUpdate ?? null"
             :is-stale="$isStale ?? false"
@@ -12,7 +22,7 @@
                     <div class="card-body d-flex justify-content-between align-items-center">
                         <div>
                             <div class="text-muted">Today's Revenue</div>
-                            <div class="h4 mb-0">$ {{ number_format($todayRevenue ?? 0, 2) }}</div>
+                            <div class="h4 mb-0">RWF {{ number_format($todayRevenue ?? 0, 2) }}</div>
                         </div>
                         <div class="text-success display-6"><i class="bi bi-cash-coin"></i></div>
                     </div>
@@ -34,7 +44,7 @@
                     <div class="card-body d-flex justify-content-between align-items-center">
                         <div>
                             <div class="text-muted">Total Revenue</div>
-                            <div class="h4 mb-0">$ {{ number_format($totalRevenue ?? 0, 2) }}</div>
+                            <div class="h4 mb-0">RWF {{ number_format($totalRevenue ?? 0, 2) }}</div>
                         </div>
                         <div class="text-danger display-6"><i class="bi bi-wallet2"></i></div>
                     </div>
@@ -75,7 +85,7 @@
         const rctx = document.getElementById('revenueChart');
         if (rctx) new Chart(rctx, {
             type: 'bar',
-            data: { labels: @json($chartLabels ?? []), datasets: [{ label: 'Revenue ($)', data: @json($revenueChartData ?? []), backgroundColor: '#0dcaf0' }] }
+            data: { labels: @json($chartLabels ?? []), datasets: [{ label: 'Revenue (RWF)', data: @json($revenueChartData ?? []), backgroundColor: '#0dcaf0' }] }
         });
 
         // Refresh support (per-role)

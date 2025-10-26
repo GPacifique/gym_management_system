@@ -22,10 +22,16 @@ class SetCurrentGym
             return $next($request);
         }
 
+        $user = Auth::user();
+
+        // Super admins bypass gym context entirely - they have platform-wide access
+        if ($user && $user->isSuperAdmin()) {
+            return $next($request);
+        }
+
         $gymId = $request->session()->get('gym_id');
 
         if (!$gymId) {
-            $user = Auth::user();
             // Prefer user's default gym
             if ($user && $user->default_gym_id) {
                 $gymId = $user->default_gym_id;
@@ -59,7 +65,6 @@ class SetCurrentGym
         }
 
         // Verify authenticated user has access to this gym
-        $user = Auth::user();
         if ($user && !$user->isAdmin() && !$user->hasGymAccess($gymId)) {
             // If user has no gym assignments yet (e.g., newly registered), attach to current gym as their default
             if ($user->gyms()->count() === 0) {

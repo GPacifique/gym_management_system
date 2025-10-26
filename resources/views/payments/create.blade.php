@@ -57,9 +57,17 @@
                                 <div class="mb-3">
                                     <label for="amount" class="form-label">Amount <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <span class="input-group-text">$</span>
                                         <input type="number" class="form-control @error('amount') is-invalid @enderror" id="amount" name="amount" step="0.01" min="0" value="{{ old('amount') }}" required>
+                                        <select class="form-select @error('currency') is-invalid @enderror" id="currency" name="currency" style="max-width: 120px;" required>
+                                            <option value="RWF" {{ old('currency', 'RWF') == 'RWF' ? 'selected' : '' }}>RWF</option>
+                                            <option value="USD" {{ old('currency') == 'USD' ? 'selected' : '' }}>USD</option>
+                                            <option value="EUR" {{ old('currency') == 'EUR' ? 'selected' : '' }}>EUR</option>
+                                            <option value="GBP" {{ old('currency') == 'GBP' ? 'selected' : '' }}>GBP</option>
+                                        </select>
                                         @error('amount')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        @error('currency')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>

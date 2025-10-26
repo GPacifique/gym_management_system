@@ -19,6 +19,7 @@ class Subscription extends Model
         'subscription_plan_id',
         'plan_name',
         'price',
+        'currency',
         'start_date',
         'end_date',
         'status',
@@ -52,7 +53,8 @@ class Subscription extends Model
     // Format price nicely
     public function getFormattedPriceAttribute()
     {
-        return '$' . number_format($this->price, 2);
+        $currency = $this->currency ?? 'RWF';
+        return $currency . ' ' . number_format($this->price, 2);
     }
 
     // Calculate remaining days

@@ -333,6 +333,35 @@
             margin-bottom: 1rem;
         }
 
+        /* Trainer Cards */
+        .trainer-card {
+            border: none;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .trainer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2) !important;
+        }
+
+        .trainer-photo-wrapper {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .trainer-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-10px); }
@@ -614,8 +643,52 @@
             </div>
         </section>
 
+        <!-- Meet Our Trainers Section -->
+        <section class="py-5 bg-white" id="trainers">
+            <div class="container">
+                <h2 class="text-center mb-3">Meet Our Professional Trainers</h2>
+                <p class="text-center text-muted mb-5">Experienced professionals ready to help you achieve your fitness goals</p>
+                <div class="row g-4">
+                    @forelse($trainers as $trainer)
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm trainer-card">
+                            <div class="card-body text-center">
+                                <div class="trainer-photo-wrapper mb-3">
+                                    <img src="{{ $trainer->photo_url }}" alt="{{ $trainer->name }}" class="trainer-photo">
+                                </div>
+                                <h5 class="card-title mb-2">{{ $trainer->name }}</h5>
+                                <p class="text-primary mb-2">
+                                    <i class="bi bi-award-fill me-1"></i>
+                                    <strong>{{ $trainer->specialization ?? 'Fitness Specialist' }}</strong>
+                                </p>
+                                @if($trainer->gym)
+                                <p class="text-muted small mb-2">
+                                    <i class="bi bi-building me-1"></i>
+                                    {{ $trainer->gym->name }}
+                                </p>
+                                @endif
+                                @if($trainer->bio)
+                                <p class="card-text small">{{ Str::limit($trainer->bio, 100) }}</p>
+                                @endif
+                                @if($trainer->email)
+                                <a href="mailto:{{ $trainer->email }}" class="btn btn-outline-primary btn-sm mt-2">
+                                    <i class="bi bi-envelope me-1"></i> Contact
+                                </a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    @empty
+                    <div class="col-12 text-center">
+                        <p class="text-muted">Our professional trainers will be showcased here soon.</p>
+                    </div>
+                    @endforelse
+                </div>
+            </div>
+        </section>
+
         <!-- Classes Section -->
-        <section class="py-5 bg-light" id="classes">
+        <section class="py-5 bg-light" id="classes">`
             <div class="container">
                 <h2 class="text-center mb-5">Our Gym Locations</h2>
                 <div class="row g-4">

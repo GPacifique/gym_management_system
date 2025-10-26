@@ -1,4 +1,4 @@
-@props(['memberCount' => 0, 'trainerCount' => 0, 'activeSubscriptions' => 0, 'totalRevenue' => 0])
+@props(['memberCount' => 0, 'trainerCount' => 0, 'activeSubscriptions' => 0, 'totalRevenue' => 0, 'currency' => 'RWF'])
 
 <div class="row">
     <!-- Members -->
@@ -75,7 +75,7 @@
                     <div class="d-flex justify-content-between align-items-start">
                         <div>
                             <h5 class="card-title mb-3">Total Revenue</h5>
-                            <h2 class="mb-0">${{ number_format($totalRevenue, 2) }}</h2>
+                            <h2 class="mb-0">{{ $currency }} {{ number_format($totalRevenue, 2) }}</h2>
                             <div class="mt-3 view-details">
                                 <small>View Details <i class="bi bi-arrow-right"></i></small>
                             </div>

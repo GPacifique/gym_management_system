@@ -11,6 +11,15 @@
             :is-stale="$isStale ?? false"
             :errors="$errors ?? []"
         />
+        @php($__gym = \App\Models\Gym::find(session('gym_id') ?? Auth::user()->default_gym_id))
+        <div class="row mb-3">
+            <div class="col-12">
+                <h3 class="fw-bold mb-0">
+                    <i class="bi bi-building me-2"></i>{{ $__gym?->name ?? 'Select Gym' }}
+                    <small class="text-muted ms-2">Dashboard</small>
+                </h3>
+            </div>
+        </div>
 
         <x-dashboard.stats-cards 
             :member-count="$memberCount ?? 0"
@@ -25,7 +34,7 @@
                     <div class="card-body d-flex justify-content-between align-items-center">
                         <div>
                             <div class="text-muted">Today's Revenue</div>
-                            <div class="h4 mb-0">$ {{ number_format($todayRevenue ?? 0, 2) }}</div>
+                            <div class="h4 mb-0">RWF {{ number_format($todayRevenue ?? 0, 2) }}</div>
                         </div>
                         <div class="text-success display-6"><i class="bi bi-cash-stack"></i></div>
                     </div>
@@ -74,7 +83,7 @@
         });
         if (rctx) new Chart(rctx, {
             type: 'bar',
-            data: { labels: @json($chartLabels ?? []), datasets: [{ label: 'Revenue ($)', data: @json($revenueChartData ?? []), backgroundColor: '#dc3545' }] }
+            data: { labels: @json($chartLabels ?? []), datasets: [{ label: 'Revenue (RWF)', data: @json($revenueChartData ?? []), backgroundColor: '#dc3545' }] }
         });
 
         // Refresh support (per-role)

@@ -1,8 +1,12 @@
-@props(['lastUpdate' => null, 'isStale' => false])
+@props(['lastUpdate' => null, 'isStale' => false, 'title' => null])
 
 <div class="dashboard-header mb-4">
     <div class="d-flex justify-content-between align-items-center">
-        <h1>🏋️‍♀️ Gym Management Dashboard</h1>
+        @if($title)
+            <h1 class="h3 mb-0">{{ $title }}</h1>
+        @else
+            <div></div>
+        @endif
         <button id="refreshDashboard" class="btn btn-primary">
             <i class="bi bi-arrow-clockwise"></i> Refresh Data
         </button>

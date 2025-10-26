@@ -40,6 +40,14 @@ class Member extends Model
         return $this->hasMany(WorkoutPlan::class);
     }
 
+    public function classBookings() {
+        return $this->hasMany(ClassBooking::class);
+    }
+
+    public function confirmedBookings() {
+        return $this->hasMany(ClassBooking::class)->where('status', 'confirmed');
+    }
+
     /**
      * Get publicly accessible photo URL or a placeholder.
      */

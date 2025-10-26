@@ -13,6 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'role' => \App\Http\Middleware\CheckRole::class,
+            'super_admin' => \App\Http\Middleware\EnsureSuperAdmin::class,
         ]);
         $middleware->web([
             \App\Http\Middleware\SetCurrentGym::class,

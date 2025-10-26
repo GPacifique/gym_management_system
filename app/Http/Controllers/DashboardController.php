@@ -26,6 +26,11 @@ class DashboardController extends Controller
 
     public function index(Request $request)
     {
+        // Redirect super admin to their dedicated dashboard
+        if (auth()->check() && auth()->user()->isSuperAdmin()) {
+            return redirect()->route('super-admin.dashboard');
+        }
+
         $errors = [];
         $role = auth()->check() ? auth()->user()->role : 'member';
         $stats = [

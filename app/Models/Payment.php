@@ -10,7 +10,7 @@ class Payment extends Model
 {
     use HasFactory, BelongsToGym;
 
-    protected $fillable = ['gym_id', 'member_id', 'subscription_id', 'amount', 'method', 'status', 'payment_date'];
+    protected $fillable = ['gym_id', 'member_id', 'subscription_id', 'amount', 'currency', 'method', 'status', 'payment_date'];
 
     public function member()
     {

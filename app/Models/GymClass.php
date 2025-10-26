@@ -47,6 +47,22 @@ class GymClass extends Model
     }
 
     /**
+     * Get the bookings for this class.
+     */
+    public function bookings()
+    {
+        return $this->hasMany(ClassBooking::class, 'class_id');
+    }
+
+    /**
+     * Get confirmed bookings for this class.
+     */
+    public function confirmedBookings()
+    {
+        return $this->hasMany(ClassBooking::class, 'class_id')->where('status', 'confirmed');
+    }
+
+    /**
      * Get the formatted name attribute.
      */
     public function getNameAttribute()
@@ -59,10 +75,23 @@ class GymClass extends Model
      */
     public function isFull()
     {
-        $currentAttendees = $this->attendances()
-            ->whereDate('check_in_time', $this->scheduled_at->toDateString())
-            ->count();
+        $currentBookings = $this->confirmedBookings()->count();
+        return $currentBookings >= $this->capacity;
+    }
 
-        return $currentAttendees >= $this->capacity;
+    /**
+     * Get available spots.
+     */
+    public function getAvailableSpotsAttribute()
+    {
+        return max(0, $this->capacity - $this->confirmedBookings()->count());
+    }
+
+    /**
+     * Check if class can be booked.
+     */
+    public function canBeBooked(): bool
+    {
+        return !$this->isFull() && $this->scheduled_at->isFuture();
     }
 }
