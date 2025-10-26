@@ -1,0 +1,50 @@
+---
+# cPanel Git Auto-Deploy configuration for Laravel
+# Docs: https://docs.cpanel.net/cpanel/files/git-version-control/
+
+deployment:
+  tasks:
+    - echo "[cPanel] Starting deployment on $(date)"
+
+    # Ensure correct shell PATH (adjust php/composer path if your account uses a custom version)
+    - export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+    # Safety: ensure we're in the repository root
+    - echo "PWD: $(pwd)"
+
+    # Ensure required directories have proper permissions
+    - if [ -d storage ]; then echo "Fixing permissions for storage & cache"; find storage -type d -exec chmod 775 {} +; find storage -type f -exec chmod 664 {} +; fi
+    - if [ -d bootstrap/cache ]; then chmod -R 775 bootstrap/cache; fi
+
+    # Composer dependencies (skip gracefully if composer doesn't exist)
+    - if command -v composer >/dev/null 2>&1; then \
+        echo "Installing Composer dependencies"; \
+        composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader; \
+      else \
+        echo "composer not found, skipping composer install"; \
+      fi
+
+    # Laravel framework tasks
+    - if [ -f artisan ]; then \
+        echo "Running Laravel optimize/cache tasks"; \
+        php artisan storage:link || true; \
+        php artisan migrate --force || { echo "Migration failed"; exit 1; }; \
+        php artisan optimize; \
+        php artisan event:cache || true; \
+        php artisan route:cache || true; \
+        php artisan view:cache || true; \
+        php artisan config:cache || true; \
+      else \
+        echo "artisan not found, skipping Laravel tasks"; \
+      fi
+
+    # Frontend build (optional, only if Node is available)
+    - if command -v npm >/dev/null 2>&1; then \
+        echo "Building frontend assets"; \
+        npm ci --no-audit --no-fund || npm install; \
+        npm run build || echo "Vite build failed (skipping)"; \
+      else \
+        echo "npm not found, skipping asset build"; \
+      fi
+
+    - echo "[cPanel] Deployment finished on $(date)"
