@@ -11,6 +11,10 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Custom Sidebar Fix CSS (prevents content overlap) -->
+    <link rel="stylesheet" href="{{ asset('css/sidebar-fix.css') }}">
+    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
 </head>
@@ -18,7 +22,7 @@
     {{-- Sidebar Component --}}
     <x-sidebar :active="request()->route()->getName()" />
 
-    <div class="wrapper">
+    <div class="main-content">
         <header class="mb-4">
             <button id="sidebarToggle" class="btn btn-dark d-md-none mb-3">
                 <i class="bi bi-list"></i>
@@ -40,6 +44,10 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Sidebar Fix JavaScript (handles dynamic content and mobile) -->
+    <script src="{{ asset('js/sidebar-fix.js') }}"></script>
+    
     @stack('scripts')
 </body>
 </html>

@@ -1,0 +1,172 @@
+/**
+ * Sidebar Layout Fix
+ * Prevents content from overlapping the sidebar
+ * Ensures proper layering and responsive behavior
+ */
+
+/* Sidebar z-index and positioning */
+.sidebar {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 250px !important;
+    height: 100vh !important;
+    z-index: 1030 !important; /* Bootstrap navbar is 1030, we match it */
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    background-color: #212529 !important;
+}
+
+/* Main content area - ensure it doesn't overlap sidebar */
+.main-content {
+    margin-left: 250px !important;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1 !important; /* Lower than sidebar */
+}
+
+/* Prevent any content from going over sidebar */
+.container,
+.container-fluid,
+.card,
+.modal,
+.dropdown-menu {
+    position: relative;
+    z-index: auto !important;
+}
+
+/* Ensure dropdowns in sidebar work properly */
+.sidebar .dropdown-menu {
+    z-index: 1031 !important;
+}
+
+/* Ensure modals still appear above everything */
+.modal {
+    z-index: 1055 !important;
+}
+
+.modal-backdrop {
+    z-index: 1050 !important;
+}
+
+/* Fixed header if you have one */
+.main-content > header,
+.main-content .sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020 !important; /* Below sidebar */
+    background: white;
+}
+
+/* Responsive behavior for mobile */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1040 !important;
+    }
+    
+    .sidebar.show {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    /* Mobile menu overlay */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1035 !important;
+        display: none;
+    }
+    
+    .sidebar-overlay.show {
+        display: block;
+    }
+}
+
+/* Prevent content shift when scrollbar appears/disappears */
+html {
+    overflow-y: scroll;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Ensure sidebar stays on top during page load */
+.sidebar {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Fix for tables and wide content */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent full-width elements from overlapping */
+.row,
+.col,
+[class*="col-"] {
+    max-width: 100%;
+}
+
+/* Fix for fixed position elements in content */
+.main-content .position-fixed {
+    z-index: 1010 !important; /* Below sidebar */
+}
+
+/* Ensure toasts/notifications appear above sidebar */
+.toast,
+.alert.position-fixed {
+    z-index: 1060 !important;
+}
+
+/* Smooth scrolling for sidebar */
+.sidebar {
+    scroll-behavior: smooth;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Prevent layout shift during asset loading */
+.main-content {
+    min-width: 0; /* Prevents flex items from overflowing */
+}
+
+/* Fix for dropdown menus in content area */
+.main-content .dropdown-menu {
+    z-index: 1025 !important;
+}
+
+/* Ensure proper stacking context */
+.sidebar,
+.main-content {
+    isolation: isolate;
+}
