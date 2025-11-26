@@ -15,60 +15,26 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Styles: Bootstrap + Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- App Assets -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <style>
-            /* Auth page specific styles */
-            body.auth-bg {
-                background: linear-gradient(135deg,#0f172a 0%,#111827 60%);
-                min-height:100vh;
-            }
-
-            .auth-card {
-                background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.03));
-                border-radius: 0.75rem;
-                box-shadow: 0 10px 30px rgba(2,6,23,0.6);
-                border: 1px solid rgba(255,255,255,0.04);
-            }
-
-            .brand-title {
-                color: #fff;
-                font-weight: 700;
-                font-size: 1.5rem;
-                letter-spacing: 1px;
-            }
-
-            .password-toggle {
-                position: absolute;
-                right: 0.75rem;
-                top: 50%;
-                transform: translateY(-50%);
-                background: transparent;
-                border: none;
-                color: #6b7280;
-                cursor: pointer;
-            }
-
-            .btn-loading {
-                pointer-events: none;
-                opacity: 0.8;
-            }
-        </style>
+    <style>
+        /* small helpers for auth page when needed */
+        .btn-loading { pointer-events: none; opacity: 0.8; }
+    </style>
     </head>
-    <body class="font-sans text-gray-900 antialiased auth-bg">
+    <body class="font-sans text-gray-100 antialiased bg-gradient-to-tr from-slate-900 via-slate-800 to-slate-900 min-h-screen">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
             <div>
-                <a href="/" class="d-flex align-items-center text-decoration-none">
-                    <x-application-logo class="w-16 h-16 fill-current text-white me-3" />
-                    <span class="brand-title">{{ config('app.name', 'GymMate') }}</span>
+                <a href="/" class="flex items-center no-underline">
+                    <x-application-logo class="w-16 h-16 fill-current text-white mr-3" />
+                    <span class="text-white font-bold text-lg">{{ config('app.name', 'GymMate') }}</span>
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-6 auth-card overflow-hidden sm:rounded-lg">
+            <div class="w-full sm:max-w-md mt-6 px-6 py-6 bg-white/5 backdrop-blur-sm rounded-lg shadow-lg border border-white/5">
                 @if (isset($slot))
                     {{ $slot }}
                 @else
@@ -78,7 +44,7 @@
         </div>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                // Password visibility toggle: inject a toggle button next to password input
+                // Password visibility toggle
                 const pwd = document.getElementById('password');
                 if (pwd) {
                     const parent = pwd.parentElement;
@@ -86,9 +52,9 @@
 
                     const btn = document.createElement('button');
                     btn.type = 'button';
-                    btn.className = 'password-toggle';
+                    btn.className = 'absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-400';
                     btn.setAttribute('aria-label', 'Toggle password visibility');
-                    btn.innerHTML = 'Show';
+                    btn.innerText = 'Show';
                     btn.addEventListener('click', () => {
                         if (pwd.type === 'password') {
                             pwd.type = 'text';
@@ -109,14 +75,11 @@
                         if (submit) {
                             submit.classList.add('btn-loading');
                             const originalText = submit.innerText;
-                            // simple spinner
-                            submit.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="animate-spin me-2" style="height:1rem;width:1rem;vertical-align:middle;" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke-opacity="0.25"></circle><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path></svg>' + 'Logging in...';
+                            submit.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="animate-spin inline-block mr-2" style="height:1rem;width:1rem;vertical-align:middle;" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke-opacity="0.25"></circle><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path></svg>' + originalText;
                         }
                     });
                 }
             });
         </script>
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
