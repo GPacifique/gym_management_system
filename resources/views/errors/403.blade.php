@@ -1,100 +1,101 @@
 @extends('layouts.guest')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
-        <div class="col-md-6 text-center">
-            <div class="card shadow-lg border-0">
-                <div class="card-body p-5">
-                    <div class="mb-4">
-                        <i class="bi bi-shield-lock text-danger" style="font-size: 5rem;"></i>
-                    </div>
-                    <h1 class="display-4 fw-bold text-danger mb-3">403</h1>
-                    <h2 class="h4 mb-3">Access Denied</h2>
-                    <p class="text-muted mb-4">
-                        @if(request()->is('members*'))
-                            <strong>You tried to access: Member Management</strong><br>
-                        @elseif(request()->is('subscriptions*'))
-                            <strong>You tried to access: Subscription Management</strong><br>
-                        @elseif(request()->is('classes*'))
-                            <strong>You tried to access: Class Management</strong><br>
-                        @elseif(request()->is('trainers*'))
-                            <strong>You tried to access: Trainer Management</strong><br>
-                        @elseif(request()->is('workout-plans*'))
-                            <strong>You tried to access: Workout Plans</strong><br>
-                        @elseif(request()->is('admin*'))
-                            <strong>You tried to access: Admin Panel</strong><br>
-                        @elseif(request()->is('gyms*'))
-                            <strong>You tried to access: Gym Management</strong><br>
-                        @elseif(request()->is('payments/*/edit'))
-                            <strong>You tried to: Edit a Payment</strong><br>
-                        @elseif(request()->is('attendances/*/edit'))
-                            <strong>You tried to: Edit an Attendance Record</strong><br>
-                        @endif
-                        Sorry, you don't have permission to access this resource.
-                        @auth
-                            Your current role (<strong>{{ ucfirst(Auth::user()->role) }}</strong>) does not have the required permissions.
-                            
-                            @if(Auth::user()->role === 'receptionist')
-                                <br><br>
-                                <span class="text-info">
-                                    <i class="bi bi-info-circle"></i> As a <strong>Receptionist</strong>, you can:
-                                </span>
-                                <ul class="text-start mt-2 d-inline-block">
-                                    <li><i class="bi bi-check text-success"></i> View and record payments</li>
-                                    <li><i class="bi bi-check text-success"></i> Track attendance (check-in/check-out)</li>
-                                    <li><i class="bi bi-check text-success"></i> Export attendance reports</li>
-                                </ul>
-                                <br>
-                                <small class="text-muted">
-                                    <i class="bi bi-x-circle text-danger"></i> You cannot edit members, subscriptions, or delete records.
-                                </small>
-                            @endif
-                        @endauth
-                    </p>
-                    
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                        @auth
-                            <a href="{{ route('dashboard') }}" class="btn btn-primary">
-                                <i class="bi bi-speedometer2"></i> Go to Dashboard
-                            </a>
-                            @if(Auth::user()->role === 'receptionist')
-                                <a href="{{ route('payments.index') }}" class="btn btn-success">
-                                    <i class="bi bi-cash"></i> Payments
-                                </a>
-                                <a href="{{ route('attendances.index') }}" class="btn btn-info">
-                                    <i class="bi bi-calendar-check"></i> Attendance
-                                </a>
-                            @endif
-                            <a href="{{ route('welcome') }}" class="btn btn-outline-primary">
-                                <i class="bi bi-house"></i> Home
-                            </a>
-                        @else
-                            <a href="{{ route('login') }}" class="btn btn-primary">
-                                <i class="bi bi-box-arrow-in-right"></i> Login
-                            </a>
-                            <a href="{{ route('register') }}" class="btn btn-success">
-                                <i class="bi bi-person-plus"></i> Register
-                            </a>
-                            <a href="{{ route('welcome') }}" class="btn btn-outline-primary">
-                                <i class="bi bi-house"></i> Home
-                            </a>
-                        @endauth
-                        <a href="javascript:history.back()" class="btn btn-outline-secondary">
-                            <i class="bi bi-arrow-left"></i> Go Back
-                        </a>
-                    </div>
-
-                    @auth
-                    <div class="mt-4 p-3 bg-light rounded">
-                        <h6 class="text-muted mb-2">Need Access?</h6>
-                        <p class="small mb-0">
-                            Contact your system administrator to request appropriate permissions for your role.
-                        </p>
-                    </div>
-                    @endauth
-                </div>
+<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl w-full bg-white shadow rounded-lg overflow-hidden">
+        <div class="p-8 text-center">
+            <div class="flex items-center justify-center mb-6">
+                <span class="inline-flex items-center justify-center p-4 rounded-full bg-red-100 text-red-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M10 2a6 6 0 00-6 6v3a4 4 0 004 4h4a4 4 0 004-4V8a6 6 0 00-6-6zM8 9a2 2 0 114 0v1a2 2 0 11-4 0V9z" clip-rule="evenodd" />
+                    </svg>
+                </span>
             </div>
+
+            <h1 class="text-5xl font-extrabold text-red-600 mb-2">403</h1>
+            <p class="text-xl font-semibold text-gray-700 mb-4">Access Denied</p>
+
+            <div class="prose prose-sm text-left max-w-none text-gray-600 mb-6">
+                @if(request()->is('members*'))
+                    <p><strong>You attempted to access:</strong> Member Management</p>
+                @elseif(request()->is('subscriptions*'))
+                    <p><strong>You attempted to access:</strong> Subscription Management</p>
+                @elseif(request()->is('classes*'))
+                    <p><strong>You attempted to access:</strong> Class Management</p>
+                @elseif(request()->is('trainers*'))
+                    <p><strong>You attempted to access:</strong> Trainer Management</p>
+                @elseif(request()->is('workout-plans*'))
+                    <p><strong>You attempted to access:</strong> Workout Plans</p>
+                @elseif(request()->is('admin*'))
+                    <p><strong>You attempted to access:</strong> Admin Panel</p>
+                @elseif(request()->is('gyms*'))
+                    <p><strong>You attempted to access:</strong> Gym Management</p>
+                @elseif(request()->is('payments/*/edit'))
+                    <p><strong>You attempted to:</strong> Edit a Payment</p>
+                @elseif(request()->is('attendances/*/edit'))
+                    <p><strong>You attempted to:</strong> Edit an Attendance Record</p>
+                @endif
+
+                <p>Sorry — you don't have permission to access this resource.</p>
+
+                @auth
+                    <p>Your current role <strong>{{ ucfirst(Auth::user()->role ?? 'user') }}</strong> does not have the required permissions.</p>
+
+                    @if(optional(Auth::user())->role === 'receptionist')
+                        <div class="mt-3">
+                            <p class="font-medium text-gray-800">As a <strong>Receptionist</strong>, you can:</p>
+                            <ul class="list-disc pl-5 mt-2 text-gray-600">
+                                <li>View and record payments</li>
+                                <li>Track attendance (check-in/check-out)</li>
+                                <li>Export attendance reports</li>
+                            </ul>
+                            <p class="text-sm text-gray-500 mt-2">You cannot edit members, subscriptions, or delete records.</p>
+                        </div>
+                    @endif
+                @endauth
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3">
+                @auth
+                    <a href="{{ route('dashboard') }}" class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <i class="bi bi-speedometer2 mr-2" aria-hidden="true"></i> Dashboard
+                    </a>
+
+                    @if(optional(Auth::user())->role === 'receptionist')
+                        <a href="{{ route('payments.index') }}" class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
+                            <i class="bi bi-cash mr-2" aria-hidden="true"></i> Payments
+                        </a>
+                        <a href="{{ route('attendances.index') }}" class="inline-flex items-center px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-700">
+                            <i class="bi bi-calendar-check mr-2" aria-hidden="true"></i> Attendance
+                        </a>
+                    @endif
+
+                    <a href="{{ route('welcome') }}" class="inline-flex items-center px-4 py-2 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50">
+                        <i class="bi bi-house mr-2" aria-hidden="true"></i> Home
+                    </a>
+                @else
+                    <a href="{{ route('login') }}" class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
+                        <i class="bi bi-box-arrow-in-right mr-2" aria-hidden="true"></i> Login
+                    </a>
+                    <a href="{{ route('register') }}" class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
+                        <i class="bi bi-person-plus mr-2" aria-hidden="true"></i> Register
+                    </a>
+                    <a href="{{ route('welcome') }}" class="inline-flex items-center px-4 py-2 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50">
+                        <i class="bi bi-house mr-2" aria-hidden="true"></i> Home
+                    </a>
+                @endauth
+
+                <a href="javascript:history.back()" class="inline-flex items-center px-4 py-2 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50">
+                    <i class="bi bi-arrow-left mr-2" aria-hidden="true"></i> Go Back
+                </a>
+            </div>
+
+            @auth
+                <div class="mt-6 bg-gray-50 p-4 rounded-md text-left text-sm text-gray-600">
+                    <h3 class="text-sm font-medium text-gray-800">Need access?</h3>
+                    <p class="mt-1">Contact your system administrator to request permissions for your role, or open a support ticket describing what you need to access.</p>
+                </div>
+            @endauth
         </div>
     </div>
 </div>
