@@ -26,6 +26,15 @@ class Subscription extends Model
     ];
 
     /**
+     * The attributes that should be cast to native types.
+     */
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date',
+        'price' => 'decimal:2',
+    ];
+
+    /**
      * Relationships
      */
 
