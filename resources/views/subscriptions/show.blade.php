@@ -95,7 +95,7 @@
                                 <small class="text-muted d-block mb-1">Start Date</small>
                                 <div class="d-flex align-items-center">
                                     <i class="bi bi-calendar-check text-success me-2"></i>
-                                    <span class="fw-semibold">{{ $subscription->start_date->format('M d, Y') }}</span>
+                                    <span class="fw-semibold">{{ $subscription->start_date ? \Carbon\Carbon::parse($subscription->start_date)->format('M d, Y') : '—' }}</span>
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                                 <small class="text-muted d-block mb-1">End Date</small>
                                 <div class="d-flex align-items-center">
                                     <i class="bi bi-calendar-x text-danger me-2"></i>
-                                    <span class="fw-semibold">{{ $subscription->end_date->format('M d, Y') }}</span>
+                                    <span class="fw-semibold">{{ $subscription->end_date ? \Carbon\Carbon::parse($subscription->end_date)->format('M d, Y') : '—' }}</span>
                                 </div>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                                 <small class="text-muted d-block mb-1">Duration</small>
                                 <div class="d-flex align-items-center justify-content-center">
                                     <i class="bi bi-clock-history text-primary me-2 fs-5"></i>
-                                    <span class="fw-bold fs-5">{{ $subscription->start_date->diffInDays($subscription->end_date) }} Days</span>
+                                    <span class="fw-bold fs-5">{{ ($subscription->start_date && $subscription->end_date) ? \Carbon\Carbon::parse($subscription->start_date)->diffInDays(\Carbon\Carbon::parse($subscription->end_date)) . ' Days' : '—' }}</span>
                                 </div>
                             </div>
                         </div>

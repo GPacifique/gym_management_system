@@ -69,7 +69,7 @@
                         </div>
                     </div>
 
-                    @if (!auth()->user()->currentGym->hasVerifiedEmail())
+                    @if (auth()->check() && optional(auth()->user()->currentGym)->hasVerifiedEmail() === false)
                     <div class="alert alert-warning">
                         <i class="bi bi-exclamation-triangle me-2"></i>
                         <strong>Don't forget:</strong> Check your email to verify your account and unlock all features.

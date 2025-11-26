@@ -15,7 +15,7 @@ class GymOnboardingController extends Controller
     public function welcome()
     {
         $gym = Gym::find(session('gym_id'));
-        
+
         if (!$gym || $gym->owner_user_id !== Auth::id()) {
             return redirect()->route('dashboard');
         }
@@ -34,7 +34,7 @@ class GymOnboardingController extends Controller
     public function addTrainer()
     {
         $gym = Gym::find(session('gym_id'));
-        
+
         if (!$gym || $gym->owner_user_id !== Auth::id()) {
             return redirect()->route('dashboard');
         }
@@ -56,13 +56,18 @@ class GymOnboardingController extends Controller
         ]);
 
         $gym = Gym::find(session('gym_id'));
-        
+
         if (!$gym || $gym->owner_user_id !== Auth::id()) {
             return redirect()->route('dashboard');
         }
 
         $validated['gym_id'] = $gym->id;
         $validated['hire_date'] = now()->toDateString();
+
+        // Ensure the trainers table 'name' column is populated by combining
+        // the provided first and last name. The trainers table requires
+        // a non-null name, so create it here before inserting.
+        $validated['name'] = trim((($validated['first_name'] ?? '') . ' ' . ($validated['last_name'] ?? '')));
 
         Trainer::create($validated);
 
@@ -84,7 +89,7 @@ class GymOnboardingController extends Controller
     public function membershipPlans()
     {
         $gym = Gym::find(session('gym_id'));
-        
+
         if (!$gym || $gym->owner_user_id !== Auth::id()) {
             return redirect()->route('dashboard');
         }
@@ -99,7 +104,7 @@ class GymOnboardingController extends Controller
     {
         // This would typically create subscription plans
         // For now, we'll just mark onboarding as complete
-        
+
         return redirect()->route('gym.onboarding.complete');
     }
 
@@ -117,7 +122,7 @@ class GymOnboardingController extends Controller
     public function complete()
     {
         $gym = Gym::find(session('gym_id'));
-        
+
         if (!$gym || $gym->owner_user_id !== Auth::id()) {
             return redirect()->route('dashboard');
         }
@@ -133,7 +138,7 @@ class GymOnboardingController extends Controller
      */
     public function finish()
     {
-        return redirect()->route('dashboard')->with('success', 
+        return redirect()->route('dashboard')->with('success',
             'Welcome to your gym dashboard! You can now start managing your gym.'
         );
     }

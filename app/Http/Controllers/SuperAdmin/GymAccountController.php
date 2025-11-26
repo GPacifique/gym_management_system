@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Schema;
 
 class GymAccountController extends Controller
 {
@@ -58,15 +59,33 @@ class GymAccountController extends Controller
     public function show(Gym $gym)
     {
         $gym->load(['owner', 'approver', 'members', 'assignedUsers']);
-        
-        // Get statistics for this gym
-        $stats = [
-            'total_members' => $gym->members()->count(),
-            'active_members' => $gym->members()->where('status', 'active')->count(),
-            'total_users' => $gym->assignedUsers()->count(),
-            'pending_payments' => \App\Models\Payment::where('gym_id', $gym->id)
+
+        // Get statistics for this gym (be defensive: some installs may lack a 'status' column)
+        $totalMembers = $gym->members()->count();
+
+        if (Schema::hasColumn('members', 'status')) {
+            $activeMembers = $gym->members()->where('status', 'active')->count();
+        } else {
+            $activeMembers = $totalMembers; // assume all members are active when no status column
+        }
+
+        $totalUsers = $gym->assignedUsers()->count();
+
+        if (Schema::hasColumn('payments', 'status')) {
+            $pendingPayments = \App\Models\Payment::where('gym_id', $gym->id)
                 ->where('status', 'pending')
-                ->count(),
+                ->count();
+        } else {
+            $pendingPayments = \App\Models\Payment::where('gym_id', $gym->id)
+                ->whereNull('payment_date')
+                ->count();
+        }
+
+        $stats = [
+            'total_members' => $totalMembers,
+            'active_members' => $activeMembers,
+            'total_users' => $totalUsers,
+            'pending_payments' => $pendingPayments,
         ];
 
         return view('super-admin.gyms.show', compact('gym', 'stats'));
@@ -156,7 +175,7 @@ class GymAccountController extends Controller
             $gym->members()->delete();
             $gym->assignedUsers()->update(['gym_id' => null, 'default_gym_id' => null]);
             $gym->users()->detach();
-            
+
             // Delete the gym
             $gym->delete();
         });
@@ -179,7 +198,7 @@ class GymAccountController extends Controller
         $gyms = $query->get();
 
         $csv = fopen('php://temp', 'w');
-        
+
         // Headers
         fputcsv($csv, [
             'ID',
