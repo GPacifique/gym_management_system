@@ -1,42 +1,36 @@
 <x-app-layout>
-    <div class="container-fluid mt-4">
-        <x-dashboard.header 
+    <div class="px-4 py-6">
+        <x-dashboard.header
             :last-update="$lastUpdate ?? null"
             :is-stale="$isStale ?? false"
             :errors="$errors ?? []"
+            :title="'Overview'"
         />
-        <x-dashboard.stats-cards 
+
+        <x-dashboard.stats-cards
             :member-count="$memberCount ?? 0"
             :trainer-count="$trainerCount ?? 0"
             :active-subscriptions="$activeSubscriptions ?? 0"
             :total-revenue="$totalRevenue ?? 0"
         />
 
-    <!-- Optional: Charts / Tables -->
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <div class="card shadow-sm">
-                <div class="card-header">
-                    Membership Growth
-                </div>
-                <div class="card-body">
+        <!-- Charts / Tables -->
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div class="bg-white rounded-lg shadow p-4">
+                <h3 class="text-sm font-medium text-gray-700 mb-2">Membership Growth</h3>
+                <div class="w-full h-64">
                     <canvas id="membersChart"></canvas>
                 </div>
             </div>
-        </div>
-        
-        <div class="col-md-6">
-            <div class="card shadow-sm">
-                <div class="card-header">
-                    Monthly Revenue
-                </div>
-                <div class="card-body">
+
+            <div class="bg-white rounded-lg shadow p-4">
+                <h3 class="text-sm font-medium text-gray-700 mb-2">Monthly Revenue</h3>
+                <div class="w-full h-64">
                     <canvas id="revenueChart"></canvas>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
