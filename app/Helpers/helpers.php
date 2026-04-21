@@ -3,6 +3,11 @@
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 
+/*
+|--------------------------------------------------------------------------
+| APP NAME
+|--------------------------------------------------------------------------
+*/
 if (!function_exists('app_name')) {
     function app_name()
     {
@@ -19,7 +24,13 @@ if (!function_exists('app_name')) {
 if (!function_exists('current_gym')) {
     function current_gym()
     {
-        return session('gym_id') ?? auth()->user()?->default_gym_id;
+        static $gymId = null;
+
+        if ($gymId) {
+            return $gymId;
+        }
+
+        return $gymId = session('gym_id') ?? auth()->user()?->default_gym_id;
     }
 }
 
@@ -27,50 +38,66 @@ if (!function_exists('current_gym_model')) {
     function current_gym_model()
     {
         $gymId = current_gym();
-        return $gymId ? \App\Models\Gym::find($gymId) : null;
+
+        if (!$gymId || !auth()->check()) {
+            return null;
+        }
+
+        return \App\Models\Gym::where('id', $gymId)
+            ->where(function ($query) {
+                $query->where('owner_id', auth()->id())
+                      ->orWhereHas('members', function ($q) {
+                          $q->where('user_id', auth()->id());
+                      });
+            })
+            ->first();
     }
 }
 
 /*
 |--------------------------------------------------------------------------
-| ROLE HELPERS (MULTI-TENANT AWARE)
+| ROLE HELPERS (SAFE MULTI-TENANT)
 |--------------------------------------------------------------------------
 */
 
 if (!function_exists('hasRole')) {
     function hasRole($roles)
     {
-        if (!auth()->check()) return false;
+        if (!auth()->check()) {
+            return false;
+        }
 
         $user = auth()->user();
 
         // Super admin bypass
-        if ($user->isSuperAdmin()) return true;
+        if (method_exists($user, 'isSuperAdmin') && $user->isSuperAdmin()) {
+            return true;
+        }
 
         $gymId = current_gym();
-        if (!$gymId) return false;
+
+        if (!$gymId) {
+            return false;
+        }
 
         $role = $user->roleInGym($gymId);
 
-        return in_array($role, (array) $roles);
-    }
-}
-
-if (!function_exists('hasAnyRole')) {
-    function hasAnyRole(array $roles)
-    {
-        return hasRole($roles);
+        return in_array($role, (array) $roles, true);
     }
 }
 
 if (!function_exists('hasExactRole')) {
     function hasExactRole(string $role)
     {
-        if (!auth()->check()) return false;
+        if (!auth()->check()) {
+            return false;
+        }
 
         $user = auth()->user();
 
-        if ($user->isSuperAdmin()) return true;
+        if (method_exists($user, 'isSuperAdmin') && $user->isSuperAdmin()) {
+            return true;
+        }
 
         return $user->roleInGym(current_gym()) === $role;
     }
@@ -78,34 +105,34 @@ if (!function_exists('hasExactRole')) {
 
 /*
 |--------------------------------------------------------------------------
-| ID GENERATORS
+| SAFE ID GENERATORS
 |--------------------------------------------------------------------------
 */
 
 if (!function_exists('generate_member_id')) {
     function generate_member_id()
     {
-        return 'MEM-' . strtoupper(Str::random(5)) . '-' . date('His');
+        return 'MEM-' . strtoupper(Str::random(6)) . '-' . now()->format('His');
     }
 }
 
 if (!function_exists('generate_invoice_number')) {
     function generate_invoice_number()
     {
-        return 'INV-' . date('Ymd') . '-' . rand(1000, 9999);
+        return 'INV-' . now()->format('YmdHis') . '-' . strtoupper(Str::random(4));
     }
 }
 
 /*
 |--------------------------------------------------------------------------
-| FORMATTERS
+| FORMATTERS (SAFE)
 |--------------------------------------------------------------------------
 */
 
 if (!function_exists('format_currency')) {
     function format_currency($amount, $currency = 'RWF')
     {
-        return $currency . ' ' . number_format($amount, 0);
+        return $currency . ' ' . number_format((float) $amount, 0);
     }
 }
 
@@ -133,26 +160,34 @@ if (!function_exists('calculate_age')) {
 if (!function_exists('truncate_text')) {
     function truncate_text($text, $length = 50)
     {
-        return Str::limit($text, $length);
+        return Str::limit(strip_tags((string) $text), $length);
     }
 }
 
 if (!function_exists('phone_format')) {
     function phone_format($phone)
     {
-        return preg_replace('/(\d{3})(\d{3})(\d{4})/', '$1 $2 $3', $phone);
+        $phone = preg_replace('/\D/', '', $phone);
+
+        if (strlen($phone) === 10) {
+            return preg_replace('/(\d{3})(\d{3})(\d{4})/', '$1 $2 $3', $phone);
+        }
+
+        return $phone;
     }
 }
 
 /*
 |--------------------------------------------------------------------------
-| UI HELPERS (BOOTSTRAP FRIENDLY)
+| UI HELPERS (SAFE HTML OUTPUT)
 |--------------------------------------------------------------------------
 */
 
 if (!function_exists('membership_status_badge')) {
     function membership_status_badge($status)
     {
+        $status = strtolower($status);
+
         return match ($status) {
             'active' => '<span class="badge bg-success">Active</span>',
             'expired' => '<span class="badge bg-danger">Expired</span>',
@@ -165,6 +200,8 @@ if (!function_exists('membership_status_badge')) {
 if (!function_exists('status_badge')) {
     function status_badge($status)
     {
+        $status = strtolower($status);
+
         $color = match ($status) {
             'active' => 'success',
             'inactive' => 'secondary',
@@ -172,14 +209,16 @@ if (!function_exists('status_badge')) {
             default => 'primary',
         };
 
-        return "<span class=\"badge bg-{$color}\">" . ucfirst($status) . "</span>";
+        return '<span class="badge bg-' . e($color) . '">' . e(ucfirst($status)) . '</span>';
     }
 }
 
 if (!function_exists('is_active_route')) {
     function is_active_route($route)
     {
-        return request()->routeIs($route) ? 'active bg-primary text-white' : '';
+        return request()->routeIs($route)
+            ? 'active bg-primary text-white'
+            : '';
     }
 }
 
@@ -204,13 +243,17 @@ if (!function_exists('greeting')) {
 
 /*
 |--------------------------------------------------------------------------
-| TENANT-SAFE COUNTS (AUTO SCOPED)
+| TENANT-SAFE COUNT (PROTECTED)
 |--------------------------------------------------------------------------
 */
 
 if (!function_exists('tenant_count')) {
     function tenant_count($modelClass)
     {
-        return $modelClass::count();
+        if (!class_exists($modelClass)) {
+            return 0;
+        }
+
+        return $modelClass::where('gym_id', current_gym())->count();
     }
 }

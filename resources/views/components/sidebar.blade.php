@@ -1,187 +1,229 @@
 @props(['active' => ''])
 
 <div x-data="{ open: false }" class="md:pl-64">
-    <!-- Mobile top bar with toggle -->
-    <div class="md:hidden flex items-center justify-between bg-gray-800 text-gray-100 px-4 py-2">
+
+    <!-- Mobile Top Bar -->
+    <div class="md:hidden flex items-center justify-between bg-gray-900 text-white px-4 py-3 shadow">
         <div class="flex items-center gap-3">
-            <button @click="open = !open" class="p-2 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M3 5h14a1 1 0 010 2H3a1 1 0 010-2zm0 4h14a1 1 0 010 2H3a1 1 0 010-2zm0 4h14a1 1 0 010 2H3a1 1 0 010-2z" clip-rule="evenodd" />
-                </svg>
+            <button @click="open = !open" class="p-2 rounded-lg hover:bg-gray-800">
+                <i class="bi bi-list text-lg"></i>
             </button>
-            <div class="flex items-center">
-                <img src="{{ asset('images/favicon.svg') }}" alt="GMS" class="h-6 mr-2">
-                <span class="font-semibold">{{ config('app.name', 'Gymmate') }}</span>
+
+            <div class="flex items-center gap-2">
+                <img src="{{ asset('images/favicon.svg') }}" class="h-6">
+                <span class="font-semibold">{{ config('app.name') }}</span>
             </div>
         </div>
+
         @auth
-            <div class="text-sm text-gray-300">{{ Auth::user()->name }}</div>
+            <div class="text-sm text-gray-300">
+                {{ Auth::user()->name }}
+            </div>
         @endauth
     </div>
 
     <!-- Sidebar -->
-    <aside :class="open ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 text-gray-100 transform md:translate-x-0 transition-transform duration-200 ease-in-out shadow-lg">
-        <div class="h-full flex flex-col">
-            <div class="px-4 py-4 border-b border-gray-800 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <img src="{{ asset('images/favicon.svg') }}" alt="GMS" class="h-6">
-                    <div class="text-lg font-semibold">{{ config('app.name', 'Gymmate') }}</div>
-                </div>
-                <div class="md:hidden">
-                    <button @click="open = false" class="p-1 rounded-md hover:bg-gray-800 focus:outline-none">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M6.293 4.293a1 1 0 011.414 0L10 6.586l2.293-2.293a1 1 0 111.414 1.414L11.414 8l2.293 2.293a1 1 0 01-1.414 1.414L10 9.414l-2.293 2.293a1 1 0 01-1.414-1.414L8.586 8 6.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
+    <aside :class="open ? 'translate-x-0' : '-translate-x-full'"
+        class="fixed inset-y-0 left-0 z-50 w-64 bg-gray-950 text-gray-300 transform md:translate-x-0 transition-all duration-300 shadow-xl">
 
-            <nav class="flex-1 overflow-y-auto px-2 py-4">
+        
+
+            <!-- Nav -->
+            <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-6">
+
                 @auth
-                <ul class="space-y-1">
-                    <li>
-                        <a href="{{ route('dashboard') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium {{ $active === 'dashboard' ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:bg-gray-800' }}">
-                            <i class="bi bi-speedometer2"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
 
-                    <li class="pt-3">
-                        <div class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Platform</div>
-                    </li>
-                    <li>
-                        <a href="{{ route('super-admin.gyms.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium {{ str_starts_with($active, 'super-admin.gyms') ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:bg-gray-800' }}">
-                            <i class="bi bi-building"></i>
-                            <span>Gym Accounts</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('super-admin.gyms.index', ['status' => 'pending']) }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800">
-                            <i class="bi bi-clock-history"></i>
-                            <span>Pending Approvals</span>
-                        </a>
-                    </li>
+                <!-- Dashboard -->
+                <div class="nav-title" ></div>
+                    <a href="{{ route('dashboard') }}"
+                       class="nav-item {{ $active === 'dashboard' ? 'active' : '' }}">
+                        <i class="bi bi-speedometer2"></i>
+                        Dashboard
+                    </a>
+                
 
-                    <li class="pt-3">
-                        <div class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Gym</div>
-                    </li>
-                    <li>
-                        <a href="{{ route('gyms.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium {{ str_starts_with($active, 'gyms') ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:bg-gray-800' }}">
-                            <i class="bi bi-building"></i>
-                            <span>My Gyms</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ session('gym_id') ? route('gyms.show', session('gym_id')) : route('gyms.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800">
-                            <i class="bi bi-card-list"></i>
-                            <span>Gym Profile</span>
-                        </a>
-                    </li>
-                    @if (Route::has('branches.index'))
-                    <li>
-                        <a href="{{ route('branches.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800">
-                            <i class="bi bi-diagram-3"></i>
-                            <span>Branches</span>
-                        </a>
-                    </li>
-                    @endif
+                <!-- PLATFORM -->
+                @role('super_admin')
+                <div>
+                    <div class="nav-title">Platform</div>
 
-                    <li class="pt-3">
-                        <div class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">People</div>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.users.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800">
-                            <i class="bi bi-people-gear"></i>
-                            <span>Users</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('members.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800">
-                            <i class="bi bi-people-fill"></i>
-                            <span>Members</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('trainers.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800">
-                            <i class="bi bi-person-workspace"></i>
-                            <span>Trainers</span>
-                        </a>
-                    </li>
+                    <a href="{{ route('super-admin.gyms.index') }}"
+                       class="nav-item {{ str_starts_with($active,'super-admin.gyms') ? 'active' : '' }}">
+                        <i class="bi bi-building"></i>
+                        Gym Accounts
+                    </a>
 
-                    <li class="pt-3">
-                        <div class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Operations</div>
-                    </li>
-                    <li>
-                        <a href="{{ route('subscriptions.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800">
-                            <i class="bi bi-calendar-check-fill"></i>
-                            <span>Subscriptions</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('payments.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800">
-                            <i class="bi bi-cash-stack"></i>
-                            <span>Payments</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('workout-plans.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800">
-                            <i class="bi bi-calendar2-week"></i>
-                            <span>Workout Plans</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('classes.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800">
-                            <i class="bi bi-collection-fill"></i>
-                            <span>Classes</span>
-                        </a>
-                    </li>
+                    <a href="{{ route('super-admin.gyms.index', ['status'=>'pending']) }}"
+                       class="nav-item">
+                        <i class="bi bi-clock-history"></i>
+                        Pending Approvals
+                    </a>
+                </div>
+                @endrole
 
-                    <li class="pt-3">
-                        <div class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Bookings</div>
-                    </li>
-                    <li>
-                        <a href="{{ route('bookings.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800">
-                            <i class="bi bi-calendar-plus"></i>
-                            <span>Book Classes</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('bookings.my-bookings') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800">
-                            <i class="bi bi-bookmark-check"></i>
-                            <span>My Bookings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('attendances.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800">
-                            <i class="bi bi-calendar-check"></i>
-                            <span>Attendance</span>
-                        </a>
-                    </li>
-                </ul>
+                <!-- GYM -->
+                @role(['admin','manager'])
+                <div>
+                    <div class="nav-title">Gym</div>
+
+                    <a href="{{ route('gyms.index') }}"
+                       class="nav-item {{ str_starts_with($active,'gyms') ? 'active' : '' }}">
+                        <i class="bi bi-building"></i>
+                        My Gyms
+                    </a>
+
+                    <a href="{{ session('gym_id') ? route('gyms.show', session('gym_id')) : route('gyms.index') }}"
+                       class="nav-item">
+                        <i class="bi bi-card-list"></i>
+                        Gym Profile
+                    </a>
+                </div>
+                @endrole
+
+                <!-- PEOPLE -->
+                @role(['admin','manager'])
+                <div>
+                    <div class="nav-title">People</div>
+
+                    <a href="{{ route('admin.users.index') }}" class="nav-item">
+                        <i class="bi bi-people-gear"></i>
+                        Users
+                    </a>
+                </div>
+                @endrole
+
+                @role(['admin','manager','receptionist'])
+                <div>
+                    <a href="{{ route('members.index') }}" class="nav-item">
+                        <i class="bi bi-people-fill"></i>
+                        Members
+                    </a>
+                </div>
+                @endrole
+
+                @role(['admin','manager'])
+                <div>
+                    <a href="{{ route('trainers.index') }}" class="nav-item">
+                        <i class="bi bi-person-workspace"></i>
+                        Trainers
+                    </a>
+                </div>
+                @endrole
+
+                <!-- OPERATIONS -->
+                @role(['admin','manager','receptionist'])
+                <div>
+                    <div class="nav-title">Operations</div>
+
+                    <a href="{{ route('subscriptions.index') }}" class="nav-item">
+                        <i class="bi bi-calendar-check"></i>
+                        Subscriptions
+                    </a>
+                </div>
+                @endrole
+
+                @role(['admin','manager'])
+                <a href="{{ route('payments.index') }}" class="nav-item">
+                    <i class="bi bi-cash-stack"></i>
+                    Payments
+                </a>
+                @endrole
+
+                @role(['admin','manager'])
+                <a href="{{ route('workout-plans.index') }}" class="nav-item">
+                    <i class="bi bi-calendar2-week"></i>
+                    Workout Plans
+                </a>
+                @endrole
+
+                @role(['admin','manager'])
+                <a href="{{ route('classes.index') }}" class="nav-item">
+                    <i class="bi bi-collection"></i>
+                    Classes
+                </a>
+                @endrole
+
+                <!-- BOOKINGS -->
+                @auth
+                <div>
+                    <div class="nav-title">Bookings</div>
+
+                    <a href="{{ route('bookings.index') }}" class="nav-item">
+                        <i class="bi bi-calendar-plus"></i>
+                        Book Classes
+                    </a>
+
+                    <a href="{{ route('bookings.my-bookings') }}" class="nav-item">
+                        <i class="bi bi-bookmark-check"></i>
+                        My Bookings
+                    </a>
+
+                    <a href="{{ route('attendances.index') }}" class="nav-item">
+                        <i class="bi bi-calendar-check"></i>
+                        Attendance
+                    </a>
+                </div>
+                @endauth
+
                 @endauth
             </nav>
 
-            <div class="px-4 py-4 border-t border-gray-800">
-                @auth
-                <div class="flex items-center justify-between">
-                    <div>
-                        <div class="text-xs text-gray-400">Signed in</div>
-                        <div class="text-sm text-gray-200">{{ Auth::user()->email }}</div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <a href="{{ route('profile.edit') }}" class="px-3 py-1 rounded-md text-sm bg-transparent border border-gray-700 text-gray-200 hover:bg-gray-800">Profile</a>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit" class="px-3 py-1 rounded-md text-sm bg-red-600 hover:bg-red-700 text-white">Logout</button>
-                        </form>
-                    </div>
-                </div>
-                @else
-                <div class="text-center">
-                    <a href="{{ route('login') }}" class="px-3 py-1 rounded-md text-sm bg-transparent border border-gray-700 text-gray-200 hover:bg-gray-800">Login</a>
-                </div>
-                @endauth
-            </div>
         </div>
     </aside>
 </div>
+
+<style>
+.nav-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #527cd1;
+    margin-bottom: 6px;
+    padding: 0 10px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: #1f3457;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    background: rgba(255,255,255,0.05);
+    color: #181313be;
+}
+
+.nav-item.active {
+    background: rgba(99,102,241,0.15);
+    color: #2e8a2a;
+}
+
+.btn-soft {
+    padding: 5px 10px;
+    border: 1px solid #374151;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #e5e7eb;
+}
+
+.btn-soft:hover {
+    background: #1f2937;
+}
+
+.btn-danger {
+    background: #dc2626;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+</style>

@@ -11,13 +11,19 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+
+        // Register middleware aliases
         $middleware->alias([
             'role' => \App\Http\Middleware\CheckRole::class,
             'super_admin' => \App\Http\Middleware\EnsureSuperAdmin::class,
+            'set_gym' => \App\Http\Middleware\SetCurrentGym::class, // ✅ moved here
         ]);
-        $middleware->web([
-            \App\Http\Middleware\SetCurrentGym::class,
-        ]);
+
+        // ❌ REMOVED: global SetCurrentGym middleware
+        // $middleware->web([
+        //     \App\Http\Middleware\SetCurrentGym::class,
+        // ]);
+
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

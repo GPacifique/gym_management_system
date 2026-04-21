@@ -1,3 +1,34 @@
+<div class="w-100 bg-white border-bottom py-2 px-3 d-flex justify-content-between align-items-center small text-muted">
+
+    <!-- LEFT SIDE -->
+    <div class="d-flex align-items-center gap-3">
+
+        <!-- APP NAME -->
+        <span class="fw-semibold text-dark">
+            {{ config('app.name', 'Gym Manager Pro') }}
+        </span>
+
+        <span class="d-none d-md-inline text-muted">
+            • {{ now()->format('D, d M Y') }}
+        </span>
+
+        @if(\App\Support\GymContext::current())
+            <span class="badge bg-primary bg-opacity-10 text-primary">
+                <i class="bi bi-building me-1"></i>
+                {{ \App\Support\GymContext::current()->name }}
+            </span>
+        @endif
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="d-flex align-items-center gap-3">
+
+        <a href="#" class="top-link">Docs</a>
+        <a href="#" class="top-link">Support</a>
+        <a href="#" class="top-link">Status</a>
+
+    </div>
 <nav x-data="{ open: false }"
      class="bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm sticky top-0 z-50">
 
@@ -124,3 +155,17 @@
     </div>
 
 </nav>
+</div>
+
+<style>
+.top-link {
+    text-decoration: none;
+    color: #6c757d;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.top-link:hover {
+    color: #0d6efd;
+}
+</style>

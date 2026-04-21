@@ -13,7 +13,7 @@
             :active-subscriptions="$activeSubscriptions ?? 0"
             :total-revenue="$totalRevenue ?? 0"
         />
-
+<x-dashboard.gym-analytics />
         <!-- Charts / Tables -->
         <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-4">
             <div class="bg-white rounded-lg shadow p-4">

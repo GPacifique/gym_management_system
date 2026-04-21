@@ -13,6 +13,9 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\GymController;
 
+Route::get('/attendances/export', [AttendanceController::class, 'export'])
+    ->name('attendances.export');
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/gyms', [GymController::class, 'index'])
@@ -23,11 +26,20 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/gyms/{gym}/edit', [GymController::class, 'edit'])
         ->name('gyms.edit');
-
+Route::post('/gyms', [GymController::class, 'store'])
+        ->name('gyms.store');
+        Route::delete('/gyms/{gym}', [GymController::class, 'destroy'])
+        ->name('gyms.destroy'); 
+        route::get('/gyms/create', [GymController::class, 'create'])
+        ->name('gyms.create');
     Route::put('/gyms/{gym}', [GymController::class, 'update'])
         ->name('gyms.update');
 
 });
+Route::get('/gyms/{gym}/switch', [GymController::class, 'switch'])->name('gyms.switch');
+Route::get('/gyms/{gym}/switch-back', [GymController::class, 'switchBack'])->name('gyms.switch-back');
+Route::get('/gyms/{gym}/switch-back-to-default', [GymController::class, 'switchBackToDefault'])->name('gyms.switch-back-default');  
+
 /*
 |--------------------------------------------------------------------------
 | HEALTH CHECK
@@ -154,19 +166,34 @@ Route::middleware(['auth', 'role:admin,manager'])->group(function () {
 |--------------------------------------------------------------------------
 */
 Route::middleware(['auth', 'role:admin,manager,receptionist'])->group(function () {
+Route::get('/gyms/{gym}/switch', [GymController::class, 'switch'])->name('gyms.switch');
+Route::get('/gyms/{gym}/switch-back', [GymController::class, 'switchBack'])->name('gyms.switch-back');
+Route::get('/gyms/{gym}/switch-back-to-default', [GymController::class, 'switchBackToDefault'])->name('gyms.switch-back-default');  
+Route::get('/gyms/{gym}/edit', [GymController::class, 'edit'])
+        ->name('gyms.edit');
+Route::post('/gyms', [GymController::class, 'store'])
+        ->name('gyms.store');
+Route::delete('/gyms/{gym}', [GymController::class, 'destroy'])
+        ->name('gyms.destroy');
+route::get('/gyms/create', [GymController::class, 'create'])
+        ->name('gyms.create');
+Route::put('/gyms/{gym}', [GymController::class, 'update']) 
+        ->name('gyms.update');
 
+Route::resource('members', MemberController::class)->only(['index', 'show', 'create', 'store']);
+route::resource('subscriptions', SubscriptionController::class)->only(['index', 'show']);   
     Route::resource('payments', PaymentController::class)->only(['index', 'show', 'create', 'store']);
-    Route::resource('attendances', AttendanceController::class)->only(['index', 'show', 'store']);
+    Route::resource('attendances', AttendanceController::class)->only(['index', 'show', 'create', 'store']);
 
     Route::get('attendances/scan', [AttendanceController::class, 'scanForm'])->name('attendances.scan');
     Route::post('attendances/scan', [AttendanceController::class, 'scanCheck'])->name('attendances.scan.check');
-
+Route::get('attendances/{attendance}/checkout', [AttendanceController::class, 'checkoutForm'])->name('attendances.checkout.form');  
+Route::post('attendances/{attendance}/checkin', [AttendanceController::class, 'checkin'])->name('attendances.checkin');
     Route::patch('attendances/{attendance}/checkout', [AttendanceController::class, 'checkout'])->name('attendances.checkout');
 
 });
 
-/*
-|--------------------------------------------------------------------------
+/*|--------------------------------------------------------------------------
 | ADMIN + MANAGER (DESTRUCTIVE ACTIONS)
 |--------------------------------------------------------------------------
 */
